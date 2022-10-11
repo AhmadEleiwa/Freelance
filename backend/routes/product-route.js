@@ -6,7 +6,7 @@ const router = express.Router()
 
 router.get('/products', productController.getProducts)
 
-router.get('/search', productController.searchProduct)
+router.post('/search', productController.searchProduct)
 router.get('/:pid',productController.getProduct)
 
 router.use(checkAuth)

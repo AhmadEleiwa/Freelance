@@ -1,9 +1,11 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-
+const fs = require('fs');
+const path = require('path');
 const userRoute = require('./routes/user-route');
 const productRoute = require('./routes/product-route')
 const  mongoose  = require('mongoose');
+const { randomInt } = require('crypto');
 const app = express()
 
 app.use(bodyParser.json());
@@ -18,6 +20,9 @@ app.use((req, res, next) => {
 
   next();
 });
+
+app.use('/static/images', express.static(path.join('static', 'images')));
+
 
 app.use('/user',userRoute)
 

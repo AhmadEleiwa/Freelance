@@ -28,30 +28,63 @@ const getProduct = async (req,res,next) =>{
 }
 
 const searchProduct= async(req,res,next) =>{
-    let products
-    const {name} = req.body.name
-    console.log(name)
+    let fillteredProducts = []
+    
+    const {productName} = req.body
+    console.log(productName)
+    if(productName != "")
     try{
-        products = await Product.find()
+        let products = await Product.find({})
+        for(let i=0; i< products.length ;i++){
+            if(productName === products[i].productName){
+                fillteredProducts.push(products[i])
+                console.log('1')
+            }
+            else if(products[i].productName.search(productName) != -1){
+                fillteredProducts.push(products[i])
+                console.log('2')
+            }
+            else{
+                console.log('3')
+                let words = productName.split(" ")
+                let searchProduct = products[i].productName.split(" ")
+                let c = 0
+                for(let j=0; j<words.length; j++){
+                    if(j >= searchProduct.length)
+                        break
+                    if(words[c] === searchProduct[j]){
+                            c+=1
+                        }
+                    }
+                    if(searchProduct.length==2 && c/searchProduct.length >= 0.50){
+                        fillteredProducts.push(products[i])
+                    }
+                    else if ( c/searchProduct.length >= 0.70){
+                        fillteredProducts.push(products[i])
+                    }
+            }
+        }
     }catch(err){
         return next(new HttpError("could found the product ", 401))
     }
-
-    res.status(201).json({products:products.map(product => product.toObject({getters:true}))})
+    // console.log(fillteredProducts)
+    res.status(201).json({products:fillteredProducts.map(product => product.toObject({getters:true}))})
 
 }
 
 const createProduct  = async (req,res,next)=>{
-    const {productName, description, ownerId} = req.body
 
+  
+    const {productName, description, ownerId} = req.body
+    console.log(ownerId)
     let user
     try{
-        user = await User.findOne(ownerId)
+        user = await User.findById(ownerId)
     }catch(err){
         return next(new HttpError("could not to upload the product , please try again later"))
     }
     if(!user){
-        return next(new HttpError("could not to upload the product , please try again later"))
+        return next(new HttpError("could not to upload the product , please try another user"))
     }
 
     const product = new Product({
