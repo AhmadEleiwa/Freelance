@@ -1,30 +1,27 @@
 import React from "react";
 import DiscoverContainer from "./components/DiscoverContainer";
+import Footer from "./components/Footer";
 import GenersContainer from "./components/GenersContainer";
 import MostPopularContainer from "./components/MostPopularContainer";
 import MostPopularList from "./components/MostPopularList";
+import MostRatedPublisher from "./components/MostRatedPublisher";
 
 
 
 const Home = () =>{
     return <div>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
+
 
         <DiscoverContainer />
         <GenersContainer />
         <MostPopularContainer />
         <MostPopularList />
-        <br/>
-        <br/>
-        <br/>
-        <br/>        <br/>
-        <br/>
-        <br/>
-        <br/>
+
+        <MostRatedPublisher />
+        {/* <hr style={{color:'#D3DEDC', opacity:0.4}} /> */}
+
+        <Footer />
+
     </div>
 }
 

@@ -26,7 +26,6 @@ app.use('/static/images', express.static(path.join('static', 'images')));
 app.use('/uploads/images', express.static(path.join('uploads', 'images')));
 
 
-
 app.use('/user',userRoute)
 app.use('/tag',tagRoute)
 

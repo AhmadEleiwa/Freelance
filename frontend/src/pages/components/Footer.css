@@ -1,0 +1,29 @@
+.footer{
+    height: 45em;
+    /* background-color: #283739; */
+    /* background-color: #191919; */
+    margin-top: 5em;
+    border-top: 1px solid rgba(87, 87, 87, 0.422);
+}
+
+.footer .content{
+    height: 80%;
+    width: 70%;
+    border-bottom: 1px solid rgba(123, 123, 123, 0.444);
+    margin: 2em auto;
+}
+
+.footer .content{
+    display: flex;
+    justify-content:  space-around;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+.footer .content .list h1{
+    font-size: 1.1em;
+}
+.footer .content .list p{
+    font-size: 1.1em;
+    color: rgb(170, 167, 167);
+
+}

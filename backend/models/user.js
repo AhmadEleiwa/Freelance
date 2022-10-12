@@ -10,7 +10,8 @@ const userSchema = Schema({
   password: { type: String, required: true, minlength: 6 },
   image: { type: String, required: true },
   userPoint: {type:Number, default:0},
-  products: [{type:mongoose.Types.ObjectId, required:true, ref:'Product'}]
+  products: [{type:mongoose.Types.ObjectId, required:true, ref:'Product'}],
+  userRate :{type:Number,default:0}
 })
 
 

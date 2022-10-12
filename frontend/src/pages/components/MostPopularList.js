@@ -5,7 +5,7 @@ import './MostPopularList.css'
 
 const MostPopularList = props =>{
     const [item ,setItem] = useState()
-    const [tap, setTap]  = useState('products')
+    const [tap, setTap]  = useState('popular')
 
     const taps = useRef()
 
@@ -16,7 +16,7 @@ const MostPopularList = props =>{
             headers: {
                 'Content-Type': 'application/json'
               },
-        }).then((res)=>res.json()).then(data => setItem(data.products))
+        }).then((res)=>res.json()).then(data => setItem(data.products.slice(0,10)))
         console.log(tap)
     },[tap])
     
@@ -31,7 +31,7 @@ const MostPopularList = props =>{
     return <div className='container'>
         <h2>Popular</h2>
         <div className='taps' ref={taps}>
-            <button className='tap active' value={'products'} onClick={tapClickHandler}>Most Popular</button>
+            <button className='tap active' value={'popular'} onClick={tapClickHandler}>Most Popular</button>
             <button className='tap' value={"top-sales"} onClick={tapClickHandler}>Top Sales</button>
         </div>
         <div className='items-list'>

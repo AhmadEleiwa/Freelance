@@ -13,6 +13,32 @@ const getProducts = async (req,res, next)=> {
     res.status(201).json({products:products.map(product => product.toObject({getters:true}))})
 }
 
+
+const getMostPopularProducts = async (req,res, next)=> {
+    let products
+    try{
+        products = await Product.find({}).sort('-hearts')
+    }catch(err){
+        return next(new HttpError("could not found any product ", 401))
+    }
+
+    res.status(201).json({products:products.map(product => product.toObject({getters:true}))})
+}
+
+const getTopSalesProducts = async (req,res, next)=> {
+    let products =[]
+
+    try{
+        products = await Product.find({}).sort('-downloads')
+    }catch(err){
+        return next(new HttpError("could not found any product ", 401))
+    }
+
+    res.status(201).json({products:products.map(product => product.toObject({getters:true}))})
+}
+
+
+
 const getMostPopular= async(req,res,next)=>{
     let products 
     let user
@@ -186,3 +212,5 @@ exports.createProduct = createProduct
 exports.searchProduct = searchProduct
 exports.getProduct = getProduct
 exports.getMostPopular = getMostPopular
+exports.getMostPopularProducts = getMostPopularProducts
+exports.getTopSalesProducts = getTopSalesProducts

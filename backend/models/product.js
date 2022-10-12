@@ -11,6 +11,8 @@ const productSchema = Schema({
     image: [{type:String, required: true}],
     hearts: {type:Number, default:0},
     downloads: {type:Number, default:0},
+    price: {type:Number, default:0},
+    totalEarns: {type:Number, default:0},
     owner: {type:mongoose.Types.ObjectId,required:true, ref:'User'},
     tags:[{type:mongoose.Types.ObjectId,ref:'Tag'}]
 })
