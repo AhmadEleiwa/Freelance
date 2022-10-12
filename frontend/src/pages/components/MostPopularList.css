@@ -1,0 +1,68 @@
+.container{
+    width: 70%;
+    margin: 5em auto;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container .taps{
+    width: 100%;
+    height: 4em;
+    display: flex;
+    /* align-items: center; */
+    border-bottom: 1px solid gray;
+}
+.container .taps .tap{
+
+    border: none;
+    outline: none;
+    margin: 1em;
+    background-color: transparent;
+    cursor: pointer;
+}
+.container .taps .active{
+    color:  green;
+}
+
+
+.container h2{
+    font-size: 2em;
+}
+.items-list{
+    width: 100%;
+    height:auto;
+    margin-top: 3em;
+    display: grid;
+    grid-template-columns: auto auto auto auto  auto;
+
+}
+.items-list .card{
+    width: 14em;
+    height: 100%;
+    margin: 5px;
+    margin-bottom: 2em;
+    
+
+}
+.items-list .card p{
+    color: black;
+
+
+}
+.items-list .card .title{
+    font-size: 1.1em;
+    margin-bottom: 0;
+    margin-top: 3px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.items-list .card .decsription{
+
+  color:  gray;
+  font-size: small;
+}
+
+.items-list .card img{
+    width: 90%;
+    height: 50%;
+    box-shadow:  0 0 1px 0  black;
+    border-radius: 3px;
+}

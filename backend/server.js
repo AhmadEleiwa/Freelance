@@ -4,10 +4,11 @@ const fs = require('fs');
 const path = require('path');
 const userRoute = require('./routes/user-route');
 const productRoute = require('./routes/product-route')
+const tagRoute = require('./routes/tag-route')
 const  mongoose  = require('mongoose');
 const { randomInt } = require('crypto');
 const app = express()
-
+const init =require('./controller/tags-controller')
 app.use(bodyParser.json());
 
 app.use((req, res, next) => {
@@ -22,9 +23,12 @@ app.use((req, res, next) => {
 });
 
 app.use('/static/images', express.static(path.join('static', 'images')));
+app.use('/uploads/images', express.static(path.join('uploads', 'images')));
+
 
 
 app.use('/user',userRoute)
+app.use('/tag',tagRoute)
 
 app.use('/product',productRoute)
 

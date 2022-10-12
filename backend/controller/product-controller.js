@@ -13,6 +13,19 @@ const getProducts = async (req,res, next)=> {
     res.status(201).json({products:products.map(product => product.toObject({getters:true}))})
 }
 
+const getMostPopular= async(req,res,next)=>{
+    let products 
+    let user
+    try{
+        products = await Product.find({}).sort('-hearts')
+        user = await User.findById(products[0].owner)
+    }catch(err){
+        return next(new HttpError("could not found any product ", 401))
+    }
+    
+    res.status(201).json({product:products[0].toObject({getters:true}),user:user.toObject({getters:true})})
+}
+
 const getProduct = async (req,res,next) =>{
     let product
     const pid = req.params.pid
@@ -31,21 +44,17 @@ const searchProduct= async(req,res,next) =>{
     let fillteredProducts = []
     
     const {productName} = req.body
-    console.log(productName)
     if(productName != "")
     try{
         let products = await Product.find({})
         for(let i=0; i< products.length ;i++){
             if(productName === products[i].productName){
                 fillteredProducts.push(products[i])
-                console.log('1')
             }
             else if(products[i].productName.search(productName) != -1){
                 fillteredProducts.push(products[i])
-                console.log('2')
             }
             else{
-                console.log('3')
                 let words = productName.split(" ")
                 let searchProduct = products[i].productName.split(" ")
                 let c = 0
@@ -67,7 +76,6 @@ const searchProduct= async(req,res,next) =>{
     }catch(err){
         return next(new HttpError("could found the product ", 401))
     }
-    // console.log(fillteredProducts)
     res.status(201).json({products:fillteredProducts.map(product => product.toObject({getters:true}))})
 
 }
@@ -177,4 +185,4 @@ exports.createProduct = createProduct
 
 exports.searchProduct = searchProduct
 exports.getProduct = getProduct
-
+exports.getMostPopular = getMostPopular

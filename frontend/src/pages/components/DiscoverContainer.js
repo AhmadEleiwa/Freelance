@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 import './DiscoverContainer.css'
 
@@ -9,7 +10,7 @@ const DiscoverContainer = props =>{
             <div className="content">
                 <h1>Discover More</h1>
                 <p>Find assets you've never seen before</p>
-                <button>Discover</button>
+                <NavLink>Discover</NavLink>
             </div>
     </div>
 }

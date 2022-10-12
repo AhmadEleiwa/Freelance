@@ -1,5 +1,5 @@
 .discover{
-    width: 60%;
+    width: 70%;
     height: 26em;
     margin: auto;
     border-radius: 5px;
@@ -26,7 +26,9 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.discover .content button{
+.discover .content a{
+    text-decoration: none;
+    text-align: center;
     width: 8em;
     color: white;
     font-size: 1.2em;
@@ -39,6 +41,9 @@
     z-index: 3;
 }
 
+.discover .content a:hover{
+    background-color: rgb(8, 180, 8);
+}
 .discover h1{
     z-index: 3;
     font-size: 2.2em;

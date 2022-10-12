@@ -5,7 +5,7 @@ const router = express.Router()
 
 
 router.get('/products', productController.getProducts)
-
+router.get('/most', productController.getMostPopular)
 router.post('/search', productController.searchProduct)
 router.get('/:pid',productController.getProduct)
 
