@@ -43,7 +43,7 @@
     transition: all 0.17s ease-in-out;
 }
 .items-list .card:hover img{
-    opacity: 0.8;
+    opacity: 0.9;
 }
 .items-list .card p{
     color: black;

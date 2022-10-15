@@ -25,6 +25,12 @@
     background-color: #f8f8f8;
     border-radius: 5px;
     box-shadow: 0 0 5px 0px #d9d7d7;
+    transition: all  0.27s ease-in-out;
+}
+.publisher-container .list .card:hover{
+    rotate: -2deg;
+    width: 12.7em;
+
 }
 
 .publisher-container .list .card img{

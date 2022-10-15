@@ -16,8 +16,8 @@ const Footer = () =>{
             <div className="list">
             <h1>Support</h1>
                 <p>Help & Support</p>
-                <p>Selling on Fiverr</p>
-                <p>Buying on Fiverr</p>
+                <p>Selling </p>
+                <p>Buying </p>
             </div>
             <div className="list">
             <h1>About</h1>

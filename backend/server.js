@@ -6,9 +6,7 @@ const userRoute = require('./routes/user-route');
 const productRoute = require('./routes/product-route')
 const tagRoute = require('./routes/tag-route')
 const  mongoose  = require('mongoose');
-const { randomInt } = require('crypto');
 const app = express()
-const init =require('./controller/tags-controller')
 app.use(bodyParser.json());
 
 app.use((req, res, next) => {

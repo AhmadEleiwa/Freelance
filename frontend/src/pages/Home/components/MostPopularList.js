@@ -17,7 +17,6 @@ const MostPopularList = props =>{
                 'Content-Type': 'application/json'
               },
         }).then((res)=>res.json()).then(data => setItem(data.products.slice(0,10)))
-        console.log(tap)
     },[tap])
     
 
