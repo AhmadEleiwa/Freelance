@@ -9,8 +9,23 @@ const getUsers = async (req,res,next)=>{
     }catch(err){
         return next(new HttpError('No users found !', 401))
     }
+
     res.status(201).json({users:users.map(user => user.toObject({getters:true}))})
 
+}
+const getUser = async (req,res,next) =>{
+    let user
+    const uid = req.params.uid
+ 
+    try{
+        user = await User.findById(uid,'-password')
+    }catch(err){
+        return next(new HttpError('No users found !', 401))
+    }
+    if(!user){
+        return next(new HttpError('No users found !', 401))
+    }
+    res.status(201).json({user:user.toObject({getters:true})})
 }
 const login = async  (req,res,next)=>{
     const {email, password} = req.body
@@ -36,14 +51,16 @@ const login = async  (req,res,next)=>{
         {expiresIn:'2h'}
         )
     }catch(err){
-
+        console.log(err)
     }
+    console.log("login in")
     res.status(201).json({userId:user.id, email:user.email, token:token})
 
 }
 
 const signup = async  (req,res,next)=>{
     const {name, email, password} = req.body
+    console.log(req.file.path)
     let userEmail,userName
     try{
         userEmail = await User.findOne({email:email}) 
@@ -58,7 +75,7 @@ const signup = async  (req,res,next)=>{
         name:name,
         password: await bcrypt.hash(password, 12),
         email:email,
-        image:"None",
+        image:req.file.path,
         products:[]
     })
     let token 
@@ -82,3 +99,5 @@ const signup = async  (req,res,next)=>{
 exports.getUsers = getUsers
 exports.login = login
 exports.signup = signup
+
+exports.getUser = getUser

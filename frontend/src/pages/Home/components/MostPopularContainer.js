@@ -4,16 +4,18 @@ import './MostPopularContainer.css'
 const MostPopularContainer = props =>{
     const [item, setItem] = useState()
 
-    useEffect(()=>{
-        fetch('http://localhost:5000/product/most', {
+     useEffect(  ()=>{
+      
+           fetch('http://localhost:5000/product/most', {
             method:'GET',
             mode:'cors',
             headers: {
                 'Content-Type': 'application/json'
               },
-        }).then((res)=>res.json()).then(data => setItem(data))
+        }).then(res => res.json()).then(data => data.message? console.log(data.message):setItem(data) )
+
         
-    },[])
+    },[item])
     return <div className="most-popular">
         <img src={`http://localhost:5000/static/images/image1.jpg`} alt="None" />
        

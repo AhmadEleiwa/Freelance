@@ -1,15 +1,18 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import './Header.css'
 import  logo from  './../../logo.png'
 import {NavLink} from 'react-router-dom'
+import { AuthContext } from "../context/auth-context";
 const Header = props =>{
     const [searchValue, setSearchValue] = useState("")
     const [searchContext, setSearchcontext] = useState()
     const [searhFocus, setSearchFocus] = useState(false)
     const [index, setIndex] = useState(0)
     const [dataListValue, setDataListValue ]  = useState("")
+    const [user,setUser] = useState()
     const datalist = useRef()
 
+    const auth = useContext(AuthContext)
 
 
     const selectDataListValue = event =>{
@@ -58,9 +61,18 @@ const Header = props =>{
         }).then((res)=>res.json()).then(data => setSearchcontext(data.products))
         
     },[ searchValue])
+    useEffect(()=>{
+        if(auth.userId)
+        fetch(`http://localhost:5000/user/${auth.userId}`, {
+            method:'GET',
+            mode:'cors',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        }).then((res)=>res.json()).then(data => setUser(data.user))
+    },[auth.userId])
 
-
-    return <div className="header"  style={{backgroundImage: 'url(http://localhost:5000/static/images/image1.jpg)'}} >
+    return <div className="header"  style={{backgroundImage: 'url(http://localhost:5000/static/images/image3.jpg)'}} >
         <div></div>
         {searhFocus && <div className="black-shadow" onClick={()=>{setSearchFocus(false)}}></div>}
         <div className="header-content" onClick={()=>{setSearchFocus(false)}}>
@@ -75,11 +87,14 @@ const Header = props =>{
     
                 </div>
                 <div className="auth-btn">
-                    <NavLink>Login</NavLink>
-                    <NavLink>Sign Up</NavLink>
+                   { !auth.isLoggedIn && <NavLink to={'/login'}>Login</NavLink>}
+                   {!auth.isLoggedIn &&<NavLink to={'/signup'}>Sign Up</NavLink>}
+                   {auth.isLoggedIn && <NavLink onClick={()=>{auth.logout()}}>logout</NavLink>}
+                   
                 </div>
                 <div className="profile">
-                    <img width={64} src="http://localhost:5000/static/images/user-icon.png" alt="" />
+                    <img width={64} src={user? `http://localhost:5000/${user.image}`:''} alt="" />
+                    <p style={{color:"white"}}>{user? user.name:""}</p>
                 </div>
             </div>
         </div>

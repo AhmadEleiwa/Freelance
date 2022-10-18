@@ -6,6 +6,7 @@ const userRoute = require('./routes/user-route');
 const productRoute = require('./routes/product-route')
 const tagRoute = require('./routes/tag-route')
 const  mongoose  = require('mongoose');
+
 const app = express()
 app.use(bodyParser.json());
 
@@ -21,7 +22,9 @@ app.use((req, res, next) => {
 });
 
 app.use('/static/images', express.static(path.join('static', 'images')));
+app.use('/uploads/images/users-images', express.static(path.join('uploads', 'images','users-images')));
 app.use('/uploads/images', express.static(path.join('uploads', 'images')));
+
 
 
 app.use('/user',userRoute)

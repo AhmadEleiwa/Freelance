@@ -1,25 +1,33 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import './MostRatedPublisher.css'
 
-const MostRatedPublisher= () =>{
-    const [users, setUsers] = useState([
-        1,2,3,4,5,6
-    ])
+const MostRatedPublisher = () => {
+    const [users, setUsers] = useState()
 
+
+    useEffect(() => {
+        fetch('http://localhost:5000/user/users', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(res => res.json()).then(data => setUsers(data.users))
+    }, [])
 
     return <div className="publisher-container">
         <h2>Top-Rated publusher</h2>
         <div className="list">
-            {users&& users.map(user =>
-            <NavLink key={user}>
-                <div className="card">
-                    <img src="http://localhost:5000/uploads/images/user.jpg" alt="" />
-                    <p>ahmad</p>
-                </div>
-            </NavLink>
+            {users && users.map(user =>
+                <NavLink key={user.id}>
+                    <div className="card">
+                        <img src={`http://localhost:5000/${user.image}`} alt="" />
+                        <p>{user.name}</p>
+                    </div>
+                </NavLink>
             )
             }
+
         </div>
     </div>
 }

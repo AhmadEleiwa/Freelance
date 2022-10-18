@@ -1,0 +1,28 @@
+.loading-spinner{
+    position:absolute;
+    width: 100vw;
+    height: 100vh;
+    margin: auto;
+    background-color: rgba(34, 34, 34, 0.245);
+    top: 0%;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.disabled{
+    display: none;
+}
+.loading-spinner .img{
+
+    width: 6em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.loading-spinner img{
+    width: 100%;
+}
