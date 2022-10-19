@@ -28,9 +28,16 @@ const Auth = props => {
     const setUsernameChangeHandler = event => {
         let name = event.currentTarget.value
         let isValid = true
+
+        
         setError('')
-        if (users.find(user => user.name === name)) {
+        if (users.find(user => user.name === name) ) {
             setError('User Is Already Exist')
+            isValid = false
+
+        }
+        if(name.includes(" ")){
+            setError("can't name contain any spaces")
             isValid = false
 
         }
@@ -168,21 +175,24 @@ const Auth = props => {
         
 
     return  <div className="auth-container" style={{ backgroundImage: 'url(http://localhost:5000/static/images/auth.jpg)' }} >
-        {receivedCode && 
-        <form onSubmit={signupHandler}>
-            <input className={` ${username.isValid ? "" : "wrong"}`} required type={'password'} onChange={event => setCode(event.target.value)} />
-            <p style={{ color: 'red' }}>{error}</p>
-            <button type={'submit'}  >login</button>
-        </form>}
+        {receivedCode && <div className="auth validate">
+        <h1>Activate Your Email  </h1>
+        <form className="login-form "  onSubmit={signupHandler}>
+            <input className={` ${username.isValid ? "" : "wrong"}`} required type={'text'} autoComplete="off" onChange={event => setCode(event.target.value)} />
+            <p >{error}</p>
+            <button type={'submit'}  >Activate</button>
+        </form>
+        </div>
+        }
         <div className="auth" style={{display:receivedCode ? "none":"flex"}} >
             {props.login && <h1>login into Freelance </h1>}
             {props.login &&
                 <form className="login-form" onSubmit={submitLoginHandler}>
                     <label>Email</label>
-                    <input className={` ${username.isValid ? "" : "wrong"}`} required type={'email'} onChange={setEmailChangeHandler} />
+                    <input className={` ${username.isValid ? "" : "wrong"}`}  required type={'email'} onChange={setEmailChangeHandler} />
                     <label>Password</label>
                     <input className={` ${username.isValid ? "" : "wrong"}`} required type={'password'} onChange={setPasswordChangeHandler} />
-                    <p style={{ color: 'red' }}>{error}</p>
+                    <p >{error}</p>
                     <button type={'submit'}  >login</button>
                     <LoadingSpinner isLoading={loading} />
                 </form>
@@ -194,12 +204,12 @@ const Auth = props => {
                     <label>Username</label>
                     <input className={` ${isFormValid ? "" : "wrong"}`} type={'text'} required onChange={setUsernameChangeHandler} />
                     <label>Email</label>
-                    <input className={` ${isFormValid ? "" : "wrong"}`} type={'email'} required onChange={setEmailChangeHandler} />
+                    <input className={` ${isFormValid ? "" : "wrong"}`}  type={'email'} required onChange={setEmailChangeHandler} />
                     <label>Password</label>
                     <input className={` ${isFormValid ? "" : "wrong"}`} min={4} type={'password'} required onChange={setPasswordChangeHandler} />
+                    <p>{error}</p>
                     <img width={'100px'} src={image?image:'http://localhost:5000/static/images/user-icon.png'} alt={'sourceImage'} onClick={() => { img.current.click() }} />
                     <input style={{display:'none'}} id="image" required  ref={img} type={'file'} accept={'.jpg , .png'} onInput={(loadImageHandler)} />
-                    <p style={{ color: 'red' }}>{error}</p>
                     <LoadingSpinner isLoading={loading} />
                     <button type={'submit'} disabled={!isFormValid} >signup</button>
                 </form>

@@ -6,7 +6,6 @@ import { BrowserRouter as Router, Route, Routes,Navigate } from 'react-router-do
 import Auth from './pages/Auth';
 import { AuthContext } from './shared/context/auth-context';
 import { useCallback, useEffect, useState } from 'react';
-import Conform from './pages/Conform';
 function App() {
   const [token, setToken] = useState(false)
   const [userId, setUserId] = useState()
@@ -54,7 +53,7 @@ function App() {
         }   />
         <Route path='/login' element={<Auth login />} />
         <Route path='/signup' element={<Auth signup />} />
-        <Route path='/conform' element={<Conform />} />
+
 
 
         <Route

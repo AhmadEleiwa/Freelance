@@ -18,11 +18,17 @@
     color: #2e3730;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
 .auth h1{
     width: 70%;
     font-size: 2em;
     margin-bottom: 2em;
     font-weight:400;
+    color:#2e3730b9;
+}
+
+.login-form p{
+    color: rgba(226, 41, 41, 0.695);
 }
 .auth .login-form 
 {
@@ -30,6 +36,33 @@
     width: 70%;
     display:  flex;
     flex-direction: column;
+}
+.validate{
+    width: 100%;
+}
+.validate h1{
+    width: 40%;
+    font-size: 1.7em;
+   text-align: center;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   color: #2e373084;
+
+}
+.validate .login-form {
+    width: 40%;
+    align-items: center;
+}
+.auth .login-form input{
+    font-size: 1em;
+    
+    border: none;
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.322);
+}
+.auth .login-form input:focus{
+    outline: 2px solid rgba(162, 162, 232, 0.278);
+}
+.auth .login-form img{
+    cursor: pointer;
 }
 .auth .login-form button{
     width: 10em;
@@ -42,6 +75,7 @@
     margin-top: 2em;
     border-radius: 3px;
     cursor: pointer;
+    transition: all 0.17s ease-in-out;
 }
 
 
@@ -49,6 +83,16 @@
     background-color: green;
     color: white;
 }
+.validate .login-form button{
+    border:1px solid #2e373084;
+    color: #2e373084;
+    box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.138);
+
+}
+.validate .login-form button:hover{
+    background-color: #2e373084;
+}
+
 .auth .login-form button:disabled {
     border: 1px solid #4e4e4e;
     background-color: #9ea19f;
@@ -62,6 +106,6 @@
 }
 
 .wrong{
-    color: red;
+    color: rgba(251, 83, 83, 0.783);
     
 }

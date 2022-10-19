@@ -18,6 +18,7 @@
     width: 90%;
     display: flex;
     z-index: 0;
+    margin-top: 1em;
     /* background-color: red; */
     justify-content: space-between;
     align-self: center;
@@ -52,6 +53,7 @@
 .links a{
     font-size: 1.1em;
     margin: 5px;
+    margin-top: 0;
     margin-left: 10px;
 }
 
@@ -83,14 +85,28 @@ a{
 
 
 .profile{
-    height: 4em;
-    /* background-color: red; */
-    /* margin-left: 4em; */
+  
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
    
 }
-
-
+.profile .img{
+    width: 64px;
+    height: 64px;
+    background-size: cover;
+    border-radius: 50%;
+}
+.profile p{
+    color: rgba(246, 246, 246, 0.906);
+    font-size: 1.1em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.profile p::before{
+    content: '@';
+}
 
 .search-bar{
     height: 40%;
