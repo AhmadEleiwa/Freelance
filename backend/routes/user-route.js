@@ -7,8 +7,8 @@ router.get('/users', userController.getUsers)
 
 router.get('/:uid', userController.getUser)
 
-router.get('',(req,res,next)=>{req.files})
 
+router.post('/validate-email', userController.checkEmail)
 router.post('/login',userController.login)
 router.post('/signup',fileUpload.profileImageUpload.single('image'),userController.signup)
 

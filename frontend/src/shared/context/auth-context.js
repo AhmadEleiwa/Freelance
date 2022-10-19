@@ -8,3 +8,11 @@ export const  AuthContext = createContext({
     login: ()=>{},
     logout: ()=>{}
 })
+
+export const  CheckContect = createContext({
+    email:null,
+    password:null,
+    username:null,
+    image:null,
+    code:null
+})

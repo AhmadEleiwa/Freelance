@@ -16,9 +16,13 @@ const Auth = props => {
     const [image, setImage] = useState()
     const [isFormValid, setIsFormValid] = useState(true)
 
+    const [code,setCode] = useState("c")
+    const [receivedCode, setReceivedCode] = useState()
+
     const img = useRef()
 
     const auth = useContext(AuthContext)
+
 
 
     const setUsernameChangeHandler = event => {
@@ -101,18 +105,45 @@ const Auth = props => {
         event.preventDefault()
         setLoading(true)
         try {
+            const res = await fetch('http://localhost:5000/user/validate-email', {
+                method: 'POST',
+                headers:{
+                    'Content-Type':'application/json'
+                },
+                body: JSON.stringify({email:email.value, name:username.value}),
+
+            })
+            let data = await res.json()
+            if (!res.ok) {
+                setError(data.message)
+            }
+            setReceivedCode(data.code)
+            console.log(data.code)
+
+        } catch (err) {
+            console.log(err)
+        }
+        setLoading(false)
+
+    }
+
+    const signupHandler = async event => {
+        event.preventDefault()
+        setLoading(true)
+        try {
             const formData = new FormData()
             formData.append('name', username.value)
             formData.append('email', email.value)
             formData.append('password', password.value)
+            formData.append('code',code)
+            formData.append('hashedCode',receivedCode)
             
             formData.append('image',img.current.files[0])
 
-            console.log(formData.get('image'))
+            console.log(img.current.files[0])
             const res = await fetch('http://localhost:5000/user/signup', {
                 method: 'POST',
-              
-                body: formData,
+                body:formData,
 
             })
             let data = await res.json()
@@ -128,15 +159,22 @@ const Auth = props => {
 
     }
 
+    
     useEffect(() => {
         fetch('http://localhost:5000/user/users')
             .then(res => res.json())
             .then(data => setUsers(data.users))
     }, [])
+        
 
-
-    return <div className="auth-container" style={{ backgroundImage: 'url(http://localhost:5000/static/images/auth.jpg)' }} >
-        <div className="auth">
+    return  <div className="auth-container" style={{ backgroundImage: 'url(http://localhost:5000/static/images/auth.jpg)' }} >
+        {receivedCode && 
+        <form onSubmit={signupHandler}>
+            <input className={` ${username.isValid ? "" : "wrong"}`} required type={'password'} onChange={event => setCode(event.target.value)} />
+            <p style={{ color: 'red' }}>{error}</p>
+            <button type={'submit'}  >login</button>
+        </form>}
+        <div className="auth" style={{display:receivedCode ? "none":"flex"}} >
             {props.login && <h1>login into Freelance </h1>}
             {props.login &&
                 <form className="login-form" onSubmit={submitLoginHandler}>
@@ -160,7 +198,7 @@ const Auth = props => {
                     <label>Password</label>
                     <input className={` ${isFormValid ? "" : "wrong"}`} min={4} type={'password'} required onChange={setPasswordChangeHandler} />
                     <img width={'100px'} src={image?image:'http://localhost:5000/static/images/user-icon.png'} alt={'sourceImage'} onClick={() => { img.current.click() }} />
-                    <input style={{display:'none'}} id="image"  ref={img} type={'file'} accept={'.jpg , .png'} onInput={(loadImageHandler)} />
+                    <input style={{display:'none'}} id="image" required  ref={img} type={'file'} accept={'.jpg , .png'} onInput={(loadImageHandler)} />
                     <p style={{ color: 'red' }}>{error}</p>
                     <LoadingSpinner isLoading={loading} />
                     <button type={'submit'} disabled={!isFormValid} >signup</button>
@@ -168,7 +206,7 @@ const Auth = props => {
             }
 
         </div>
-
+        
     </div>
 
 }
