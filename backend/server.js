@@ -6,8 +6,10 @@ const userRoute = require('./routes/user-route');
 const productRoute = require('./routes/product-route')
 const tagRoute = require('./routes/tag-route')
 const  mongoose  = require('mongoose');
-
+const dotenv = require('dotenv').config()
 const app = express()
+
+
 app.use(bodyParser.json());
 
 app.use((req, res, next) => {
@@ -43,7 +45,7 @@ app.use((error, req, res, next) => {
 
 
 mongoose
-.connect('mongodb+srv://sico:sico@cluster0.pahqx.mongodb.net/freelance?retryWrites=true&w=majority')
+.connect(process.env.mongoPath)
 .then(()=>{
     console.log("connecting to Database")
     app.listen(5000)
