@@ -1,3 +1,2 @@
 .env
-.jpg
-.png
+*.png
