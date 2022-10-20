@@ -10,6 +10,8 @@ const Header = props => {
     const [index, setIndex] = useState(0)
     const [dataListValue, setDataListValue] = useState("")
     const [user, setUser] = useState()
+    const [menuButton, setMneuButton] = useState(false)
+
     const datalist = useRef()
 
     const auth = useContext(AuthContext)
@@ -73,13 +75,17 @@ const Header = props => {
     }, [auth.userId])
 
     return <div className="header" style={{ backgroundImage: 'url(http://localhost:5000/static/images/image3.jpg)' }} >
-        <div></div>
         {searhFocus && <div className="black-shadow" onClick={() => { setSearchFocus(false) }}></div>}
         <div className="header-content" onClick={() => { setSearchFocus(false) }}>
             <div className="logo">
                 <img src={logo} alt="logo" />
             </div>
-            <div className="content">
+            <div className="menu" onClick={()=>setMneuButton(!menuButton)}>
+                <div />
+                <div />
+                <div />
+            </div>
+            <div className={`content`}  >
                 <div className="links">
                     <NavLink to='/home'>Popular</NavLink>
                     <NavLink to='/home'>Discover</NavLink>
@@ -98,7 +104,25 @@ const Header = props => {
                 </div>
             </div>
         </div>
-        <div className="search-bar" onFocus={() => { setSearchFocus(true) }}   >
+        <div className={`rem ${menuButton?'content-res' :''}`}  >
+                <div className="links">
+                    <NavLink to='/home'>Popular</NavLink>
+                    <NavLink to='/home'>Discover</NavLink>
+                    <NavLink to='/home'>Bussines</NavLink>
+
+                </div>
+                <div className="auth-btn">
+                    {!auth.isLoggedIn && <NavLink to={'/login'}>Login</NavLink>}
+                    {!auth.isLoggedIn && <NavLink to={'/signup'}>Sign Up</NavLink>}
+                    {auth.isLoggedIn && <NavLink onClick={() => { auth.logout() }}>logout</NavLink>}
+
+                </div>
+                <div className="profile">
+                    {user && <div className="img" style={{ backgroundImage: `url(http://localhost:5000/${user.image})` }}  ></div>}
+                    {user && <p > {user.name}</p>}
+                </div>
+            </div>
+        <div className={`search-bar ${menuButton?'search-bar ' :'del'} `} onFocus={() => { setSearchFocus(true) }}   >
             <p>Gabrielle, Video Editor
                 Find the perfect freelance services for your business</p>
             <div className="search" >
