@@ -1,5 +1,5 @@
 .discover{
-    width: 70%;
+    width: 80%;
     height: 26em;
     margin: 10em auto;
     border-radius: 5px;
@@ -39,13 +39,13 @@
     border:none;
     border-radius: 5px;
     padding:10px 10px;
-    background-color: green;
+    background-color: #42855B;
     cursor: pointer;
     z-index: 3;
 }
 
 .discover .content a:hover{
-    background-color: rgb(8, 180, 8);
+    background-color: #90B77D;
 }
 .discover h1{
     z-index: 3;
@@ -68,4 +68,45 @@
     z-index: 2;
  border-radius: inherit;
 
+}
+@media only screen and (max-width: 1280px) {
+    .discover{
+        height: 15.4em;
+         margin: 7em auto;
+
+    }
+    .discover h1{
+        z-index: 3;
+        font-size: 2em;
+    
+    }
+    .discover p{
+        z-index: 3;
+        font-size: medium;
+    
+    }
+    .discover .content a{
+        font-size: medium;
+    }
+}
+
+@media only screen and (max-width: 720px){
+    .discover{
+        height: 12em;
+        margin: 5em auto;
+
+    }
+    .discover h1{
+        z-index: 3;
+        font-size: 1.2em;
+    
+    }
+    .discover p{
+        z-index: 3;
+        font-size: medium;
+    
+    }
+    .discover .content a{
+        font-size: small;
+    }
 }

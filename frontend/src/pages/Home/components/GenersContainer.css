@@ -1,5 +1,5 @@
 .geners{
-    width: 70%;
+    width: 80%;
     height: 22em;
     /* background-color: red; */
     margin: 5em auto;
@@ -71,4 +71,34 @@
 }
 .geners .list .card p{
     font-size: .95em;
+}
+
+
+@media only screen and (max-width: 1280px) {
+    .geners{
+        height: 20em;
+
+    }
+    .geners .list .card{
+        width: 14em;
+    }
+    .geners .list .card .card-img{
+        font-size: larger;
+    }
+}
+
+@media only screen and (max-width: 720px) {
+    .geners{
+        height: 18em;
+
+    }
+    .geners .list .card{
+        width: 12em;
+    }
+    .geners .list .card .card-img{
+        font-size: medium;
+    }
+    .geners h1{
+        font-size: 1.4em;
+    }
 }

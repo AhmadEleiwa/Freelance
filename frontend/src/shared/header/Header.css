@@ -1,5 +1,4 @@
-
-.header{
+.header {
     width: 100%;
     height: 36em;
     background-color: #283739;
@@ -9,10 +8,11 @@
     z-index: -8;
     background-repeat: no-repeat;
     background-size: cover;
-   
+
 
 }
-.header-content{
+
+.header-content {
     height: 50%;
     width: 90%;
     display: flex;
@@ -23,17 +23,20 @@
     align-self: center;
     /* z-index: -1  ; */
 }
-.logo{
+
+.logo {
     height: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-left: 3em;
 }
-.logo img{
+
+.logo img {
     height: 80%;
 }
-.header-content .content{
+
+.header-content .content {
     height: 50%;
     width: 50%;
     margin-top: 1em;
@@ -41,132 +44,132 @@
     display: flex;
     justify-content: space-between;
 }
-.links{
+
+.links {
     height: 25%;
     display: flex;
     justify-content: center;
     align-items: center;
-  
+
 
 }
-.links a{
+
+.links a {
     font-size: 1.1em;
     margin: 5px;
     margin-top: 0;
     margin-left: 10px;
 }
 
-.links a:hover{
+.links a:hover {
     text-decoration: underline;
 }
 
 
-.header-content .content .auth-btn a{
+.header-content .content .auth-btn a {
     height: 20px;
     background-color: transparent;
     color: white;
     border: 1px solid white;
-    padding: 0.5em 1.1em ;
+    padding: 0.5em 1.1em;
     border-radius: 3px;
     transition: all 0.17s ease-in;
     margin: 5px;
 }
-.content .auth-btn a:hover{
-    background-color: green;
-    border: 1px solid green;
+
+.content .auth-btn a:hover {
+    background-color: #42855B;
+    border: 1px solid #42855B;
     color: white;
 
 }
-a{
+
+a {
     text-decoration: none;
-    color:  white;
+    color: white;
 }
 
 
-.profile{
-  
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-   
-}
-.profile .img{
-    width: 64px;
-    height: 64px;
-    background-size: cover;
-    border-radius: 50%;
-}
-.profile p{
+
+.profile p {
     color: rgba(246, 246, 246, 0.906);
     font-size: 1.1em;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
 }
-.profile p::before{
+
+.profile p::before {
     content: '@';
 }
 
-.search-bar{
+.search-bar {
     height: 40%;
     width: 80%;
     align-self: center;
-    
+
 }
-.search-bar p{
+
+.search-bar p {
     width: 50%;
     color: white;
     font-size: 1.9em;
 }
-.search-bar .search{
-    width: 45%;
+
+.search-bar .search {
+    width: 60%;
     height: 3em;
     display: flex;
     align-items: center;
-   
+
 
 }
-.search-bar .search input{
+
+.search-bar .search input {
     height: 100%;
     padding: 0px;
     padding-left: 5px;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
     width: 80%;
     border: none;
     z-index: 1;
     font-size: 1em;
 
     outline: none;
-    transition:  all 0.17s ease-in;
+    transition: all 0.17s ease-in;
 }
-.search-bar .search input:focus{
+
+.search-bar .search input:focus {
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px
 }
-.search-bar .search button{
+
+.search-bar .search button {
     height: 100%;
     width: 15%;
     font-size: 1em;
     padding: 5px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    background-color: green;
+    background-color: #42855B;
     color: white;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
     border: none;
     outline: none;
     cursor: pointer;
     z-index: 1;
     position: relative;
-    transition:  all 0.17s ease-in;
+    transition: all 0.17s ease-in;
 
 }
 
+.search-bar .search button:hover {
+    background-color: #90B77D;
+}
 
-.header .black-shadow{
-    position:absolute;
+.header .black-shadow {
+    position: absolute;
     width: 100%;
     height: 100%;
     background-color: black;
@@ -174,31 +177,33 @@ a{
     z-index: 0;
 }
 
-.datalist{
+.datalist {
     width: 43%;
     display: flex;
     flex-direction: column;
     max-height: 8em;
     /* align-items: center; */
     overflow-y: auto;
-    overflow-x:hidden;
+    overflow-x: hidden;
 }
-.datalist input{
+
+.datalist input {
     width: 98%;
     padding: 10px;
     padding-right: 0px;
     font-size: 1em;
     outline: none;
-    border:none;
+    border: none;
     z-index: 1;
     cursor: pointer;
 
 }
-.datalist input:hover{
+
+.datalist input:hover {
     background-color: rgb(207, 230, 208);
 }
 
-.header-content .menu{
+.header-content .menu {
     width: 2.5em;
     height: 2.5em;
     display: none;
@@ -208,166 +213,150 @@ a{
     cursor: pointer;
 
 }
-.header-content .menu div{
-    background-color: rgba(23, 207, 23, 0.68);
+
+.header-content .menu div {
+    background-color: #42855B;
+    box-shadow: 0px 0px 4px 0px black;
     width: 100%;
     height: 15%;
     border-radius: 3px;
 }
+
 .rem {
     display: none;
 }
-
- @media only screen and (max-width: 1000px){
-    .header{
+@media only screen and (max-width: 1280px) {
+    .profile p{
+        font-size: 0.9em;
+    }
+}
+@media only screen and (max-width: 1000px) {
+    .header {
         width: 100%;
-        height: auto;
+        height: 27em;
+        max-height: fit-content;
+        min-height: auto;
         padding-bottom: 5px;
         background-size: cover;
-    }
-    .header-content .content {
-        display: none;
 
     }
-    .content-res{
-        width: 95%;
-        height: 50%;
+
+    .header-content .content {
+        /* display: none; */
+
+
+    }
+
+    .header-content .content .links {
+        display: none;
+    }
+
+    .content-res {
+        height: 10%;
+        width: 90%;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin: 3em auto;
 
     }
-   .content-res .links{
-        flex-direction: column;
-        width: 50%;
+
+    .content-res .links {
+        /* flex-direction: column; */
+        width: 80%;
+        margin: auto;
+        font-size: 1.3em;
+        display: flex;
         justify-content: center;
         align-items: center;
+
     }
-    .content-res .links a{
-        margin: 2px;
+
+    .content-res .links a {
+        margin: 15px;
+        
     }
-    .content-res .auth-btn {
-        width: 50%;
-        display: flex;
-        justify-content: space-around;
-        /* background-color: red; */
-    }
-    .content-res .auth-btn a{
-        display: flex;
-        flex-direction: column;
-        height: 20px;
-        width: 50%;
-        text-align: center;
-        background-color: transparent;
-        color: white;
-        border: 1px solid white;
-        padding: 0.5em 1em ;
-        border-radius: 3px;
-        transition: all 0.17s ease-in;
-        margin: 3px;
-    }
-    .content-res .auth-btn a:hover{
-        background-color: green;
-        border: 1px solid green;
-        color: white;
-    
-    }
+
     .header-content .logo {
         height: 3.8em;
 
+
     }
-    .header-content .menu{
+
+    .header-content .menu {
         display: flex;
     }
 
-    .search-bar{
+    .search-bar {
         /* display: none; */
-        height: 40%;
-        width:100%;
+        height: 60%;
+        width: 100%;
         display: flex;
         flex-direction: column;
+
         align-items: center;
-        /* background-color: red; */
+
     }
-    .search-bar  p{
-        font-size: 1em;
+
+    .search-bar p {
+        font-size: 1.7em;
+        /* display: none; */
+        align-self: left;
+        width: 80%;
+
+    }
+
+    .search-bar .search {
+        width: 90%;
+        height: 7em;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        margin-bottom: 30px;
+
+    }
+
+    .search-bar .search input {
+        width: 90%;
+        border-radius: 0;
+        margin: 5px;
+        height: 80%;
+    }
+
+    .search-bar .search button {
+        width: 90%;
+        border: 0px 0px;
+        border-radius: 2px;
+        height: 70%;
+
+    }
+
+
+    .del {
         display: none;
-        width: 70%;
-    }
-    .search-bar .search{
-        width: 70%;
- 
-    }
-    .search-bar .search input{
-        width: 70%;
-    }
-    .search-bar .search button{
-        width: 30%;
-    }
-
-    .del{
-        display: none;
 
     }
- }
+}
+@media only screen and (max-width: 720px) {
+    .search-bar p {
+        font-size: 1.4em;
+    }
+    .auth-btn a{
+        font-size: smaller;
+    }
+    .profile p{
+        font-size: 0.76em;
+    }
+    .header-content .menu {
+        width: 2em;
+        height: 2em;
+    }
+    .header-content {
+        width: 95%;
+        /* margin:0 auto; */
 
- /* 
- 
-.search-bar{
-    height: 40%;
-    width: 80%;
-    align-self: center;
-    
+    }
+    .content-res .links a {
+        font-size: large;
+        
+    }  
 }
-.search-bar p{
-    width: 50%;
-    color: white;
-    font-size: 1.9em;
-}
-.search-bar .search{
-    width: 45%;
-    height: 3em;
-    display: flex;
-    align-items: center;
-   
-
-}
-.search-bar .search input{
-    height: 100%;
-    padding: 0px;
-    padding-left: 5px;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    width: 80%;
-    border: none;
-    z-index: 1;
-    font-size: 1em;
-
-    outline: none;
-    transition:  all 0.17s ease-in;
-}
-.search-bar .search input:focus{
-    border-top-left-radius: 0px;
-    border-bottom-left-radius: 0px
-}
-.search-bar .search button{
-    height: 100%;
-    width: 15%;
-    font-size: 1em;
-    padding: 5px;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    background-color: green;
-    color: white;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    z-index: 1;
-    position: relative;
-    transition:  all 0.17s ease-in;
-
-}
- */
