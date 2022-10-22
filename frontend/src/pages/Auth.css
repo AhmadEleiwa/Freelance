@@ -37,8 +37,9 @@
     display:  flex;
     flex-direction: column;
 }
-.validate{
+.auth-container.validate{
     width: 100%;
+
 }
 .validate h1{
     width: 40%;
@@ -50,6 +51,7 @@
 }
 .validate .login-form {
     width: 40%;
+
     align-items: center;
 }
 .auth .login-form input{
@@ -68,25 +70,27 @@
     width: 10em;
     padding: 10px 5px;
     outline: none;
-    border: 1px solid green;
-    background-color: transparent;
-    color: green;
+    border: none;
+    background-color: #42855B;;
+    color: white;
     font-size: large;
     margin-top: 2em;
     border-radius: 3px;
     cursor: pointer;
     transition: all 0.17s ease-in-out;
+    margin-bottom: 15px;
 }
-
 
 .auth .login-form button:hover{
-    background-color: green;
-    color: white;
+    background-color: #90B77D;
 }
+
 .validate .login-form button{
     border:1px solid #2e373084;
+    background-color: transparent;
     color: #2e373084;
     box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.138);
+   
 
 }
 .validate .login-form button:hover{
@@ -102,10 +106,36 @@
     margin: 1em;
     margin-left: 0;
     padding: 1em;
-    width: 35em;
+    width: 90%;
 }
 
 .wrong{
     color: rgba(251, 83, 83, 0.783);
     
+}
+
+
+@media only screen and (max-width: 1280px) {
+
+    .auth{
+        width: 100%;
+        height: 100%;
+        
+    }
+    .auth h1{
+        font-size: 1.7em;
+    }
+    .validate {
+        height: 100vh;
+
+  
+    }
+
+    .validate h1{
+        width: 40%;
+        text-align: left;
+
+        font-size: 1.3em;
+
+    }
 }

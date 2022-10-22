@@ -92,21 +92,21 @@
 
 @media only screen and (max-width: 720px){
     .discover{
-        height: 12em;
+        height: 10em;
         margin: 5em auto;
 
     }
     .discover h1{
         z-index: 3;
-        font-size: 1.2em;
+        font-size: 1.1em;
     
     }
     .discover p{
         z-index: 3;
-        font-size: medium;
+        font-size: small;
     
     }
     .discover .content a{
-        font-size: small;
+        font-size: smaller;
     }
 }

@@ -18,7 +18,13 @@ const MostPopularContainer = props =>{
     },[item])
     return <div className="most-popular">
         <img src={`http://localhost:5000/static/images/image1.jpg`} alt="None" />
-       
+            
+        <div className="content">
+            <p className="creator">item.user.name</p>
+            <p className="title">item.product.productName</p>
+            <p className="description">tem.product.description</p>
+            <NavLink>Find Out</NavLink>
+        </div>
         {item && <div className="content">
             <p className="creator">{item.user.name}</p>
             <p className="title">{item.product.productName}</p>

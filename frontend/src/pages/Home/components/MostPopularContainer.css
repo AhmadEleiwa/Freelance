@@ -1,21 +1,22 @@
-.most-popular{
-    width: 70%;
+.most-popular {
+    width: 80%;
+
     height: 26em;
     margin: auto;
     display: flex;
     border-radius: 7px;
-    box-shadow:0 0 4px 1px #2f2f2f;
+    box-shadow: 0 0 4px 1px #2f2f2f;
 }
 
-.most-popular img{
+.most-popular img {
     width: 70%;
     height: 100%;
-    border-radius: 2px  0px  0px 2px;
+    border-radius: 2px 0px 0px 2px;
 }
 
-.most-popular .content{
+.most-popular .content {
     /* border-radius: inherit; */
-    border-radius: 0px  2px 2px 0px ;
+    border-radius: 0px 2px 2px 0px;
     width: 30%;
     display: flex;
     flex-direction: column;
@@ -24,31 +25,132 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: #2c2c2c;
     padding-left: 4em;
+    text-align: left;
 
 }
 
-.most-popular .content .creator{
+.most-popular .content .creator {
     color: #9c9c9c;
+    word-break: break-all;
+
     font-size: large;
 }
 
-.most-popular .content .title{
+.most-popular .content .title {
     /* color: red; */
-    font-size: 2.1em;
+    word-break: break-all;
+    color: #d6d6d6;
+    font-size: 1.7em;
 
 }
 
+.most-popular .content .description {
+    color: #d6d6d6;
+    word-break: break-all;
 
-.most-popular .content a{
+
+}
+
+.most-popular .content a {
     width: 5em;
     text-align: center;
-    background-color: green;
+    background-color: #42855B;
     padding: 7px 10px;
     font-size: 1.4em;
     border-radius: 3px;
 
 }
-.most-popular .content a:hover{
-    background-color: rgb(8, 187, 8);
 
+.most-popular .content a:hover {
+    background-color: #90B77D;
+
+}
+
+@media only screen and (max-width: 1480px) {
+    .most-popular {
+        height: 24em;
+    }
+
+    .most-popular .content .title {
+        font-size: 1.2em;
+    }
+
+    .most-popular .content .creator {
+        font-size: large;
+
+    }
+
+    .most-popular .content .description {
+        font-size: large;
+    }
+}
+
+@media only screen and (max-width: 1280px) {
+    .most-popular {
+        height: 20em;
+    }
+
+    .most-popular .content .title {
+        font-size: 1.1em;
+    }
+
+    .most-popular .content .creator {
+        font-size: medium;
+
+    }
+
+    .most-popular .content .description {
+        font-size: small;
+    }
+
+    .most-popular .content a {
+        font-size: medium;
+    }
+}
+@media only screen and (max-width: 980px) {
+    .most-popular {
+        height: 14em;
+    }
+
+    .most-popular .content {
+        width: 30%;
+        padding-left: 2em;
+
+    }
+    .most-popular .content .title {
+        font-size: small;
+    }
+
+    .most-popular .content .creator {
+        font-size: small;
+
+    }
+}
+@media only screen and (max-width: 720px) {
+    .most-popular {
+        height: 10em;
+    }
+
+    .most-popular .content {
+        width: 30%;
+        padding-left: 1em;
+
+    }
+
+    .most-popular .content .title {
+        font-size: x-small;
+    }
+
+    .most-popular .content .creator {
+        font-size: xx-small;
+
+    }
+
+    .most-popular .content .description {
+        font-size: xx-small;
+    }
+
+    .most-popular .content a {
+        font-size: xx-small;
+    }
 }
