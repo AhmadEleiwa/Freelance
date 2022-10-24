@@ -1,0 +1,59 @@
+.container-upload{
+    width: 60%;
+    /* height: 40em; */
+    background-color: #FAF7F0;
+    box-shadow:  0 0 1px 0px black;
+    margin: 4em auto;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #2f2f2f;
+    padding-top:2em ;
+}
+
+.upload{
+    width: 60%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    /* background-color: red; */
+}
+.upload form{
+    display: flex;
+    flex-direction: column;
+    margin: 2em 0 ;
+
+}
+.upload form input, textarea, select{
+    margin-bottom: 2em ;
+
+}
+.upload .name{
+    width: 20em;
+    height: 2em;
+}
+.upload .description{
+    height: 15em;
+}
+.upload .price{
+    width: 15em;
+    height: 2em;
+}
+.upload form label{
+    margin-bottom: 1em;
+}
+
+
+.upload form button   {
+    width: 12em;
+    padding: 10px 15px;
+    border: none;
+    background-color: #42855B;
+    color: white;
+    border-radius: 3px;
+}
+
+.upload form button:hover{
+    background-color: #90B77D;
+
+}

@@ -11,7 +11,7 @@ const DiscoverContainer = props =>{
                 <h1>Discover More</h1> 
 
                 <p>Find assets you've never seen before</p>
-                <NavLink>Discover</NavLink>
+                <NavLink to={'/'}>Discover</NavLink>
             </div>
     </div>
 }

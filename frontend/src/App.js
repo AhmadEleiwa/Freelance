@@ -1,85 +1,98 @@
 import './App.css';
-import Home from './pages/Home/components/Home';
+import Home from './pages/Home/Home';
 import Header from './shared/header/Header';
 
-import { BrowserRouter as Router, Route, Routes,Navigate } from 'react-router-dom';
-import Auth from './pages/Auth';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+
+import Auth from './pages/Auth/Auth';
 import { AuthContext } from './shared/context/auth-context';
 import { useCallback, useEffect, useState } from 'react';
+import Upload from './pages/Upload/Upload';
+
 function App() {
-  const [token, setToken] = useState(false)
+  const [token, setToken] = useState()
   const [userId, setUserId] = useState()
- 
 
 
 
-  const login = useCallback((uid, token)=>{
+
+  const login = useCallback((uid, token) => {
+    // console.log(token)
     setToken(token)
     setUserId(uid)
     localStorage.setItem('userData', JSON.stringify({
-      userId:uid,
-      token:token
+      userId: uid,
+      token: token
     }))
-  },[])
-  const logout = useCallback(()=>{
+  }, [])
+  const logout = useCallback(() => {
     setToken(false)
     setUserId(null)
     localStorage.removeItem('userData')
-  },[])
+  }, [])
 
-  useEffect(()=>{
+  useEffect(() => {
     let user = JSON.parse(localStorage.getItem('userData'))
-    if(user){
+    if (user) {
       login(user.userId, user.token)
     }
-  },[login])
+  }, [login])
+
+
+  console.log(token)
+
   return (
     <AuthContext.Provider
-    value={{
-      isLoggedIn:!!token,
-      token:token,
-      userId:userId,
-      login:login,
-      logout:logout
-    }} >
+      value={{
+        isLoggedIn: !!token,
+        token: token,
+        userId: userId,
+        login: login,
+        logout: logout
+      }} >
 
-    <Router>
-      {!token &&<Routes>
-        <Route path='/' element={
-          <div>
-          <Header  />
-            <Home />
-            </div>
-        }   />
-        <Route path='/login' element={<Auth login />} />
-        <Route path='/signup' element={<Auth signup />} />
+      <Router>
+        <main>
+          {!token && <Switch>
+
+          
+  
+            <Route path='/login'  ><Auth login /></Route>
+            <Route path='/signup'  ><Auth signup /></Route>
+
+            <Route path={'/'}   >
+              <div>
+                <Header />
+                <Home />
+              </div>
+            </Route>
+            <Redirect  to={'/'}/>
+
+          </Switch>
+          }
+          {token && <Switch>
+            <Route path={'/'}  exact >
+              <div>
+                <Header />
+                <Home />
+              </div>
+            </Route>
+            <Route path={'/upload'} exact><Upload /></Route>
+
+
+            <Redirect  to={'/'}/>
+
+
+          </Switch>
+          }
+
+        </main>
 
 
 
-        <Route
-        path="*"
-        element={<Navigate to="/" replace />}
-        />
-      </Routes> }
-      {token && <Routes>
-         <Route path='/' element={
-          <div>
-          <Header />
-            <Home />
-            </div>
-        }   />
- 
-
-        <Route
-        path="*"
-        element={<Navigate to="/" replace />}
-        />
-      </Routes> }
-      
-      
       </Router>
-      </AuthContext.Provider>
+    </AuthContext.Provider>
   );
-}
 
+}
 export default App;

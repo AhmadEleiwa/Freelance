@@ -9,10 +9,3 @@ export const  AuthContext = createContext({
     logout: ()=>{}
 })
 
-export const  CheckContect = createContext({
-    email:null,
-    password:null,
-    username:null,
-    image:null,
-    code:null
-})

@@ -19,7 +19,7 @@ const MostRatedPublisher = () => {
         <h2>Top-Rated publusher</h2>
         <div className="list">
             {users && users.map(user =>
-                <NavLink key={user.id}>
+                <NavLink to={'/'} key={user.id}>
                     <div className="card">
                         <img src={`http://localhost:5000/${user.image}`} alt="" />
                         <p>{user.name}</p>

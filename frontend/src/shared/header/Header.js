@@ -84,9 +84,9 @@ const Header = props => {
       
             <div className={`content`}  >
                 <div className="links">
-                    <NavLink to='/home'>Popular</NavLink>
-                    <NavLink to='/home'>Discover</NavLink>
-                    <NavLink to='/home'>Bussines</NavLink>
+                    <NavLink to='/'>Popular</NavLink>
+                    <NavLink to='/'>Discover</NavLink>
+                    <NavLink to='/'>Bussines</NavLink>
 
                 </div>
                 <div className="profile">
@@ -95,7 +95,7 @@ const Header = props => {
                 <div className="auth-btn">
                     {!auth.isLoggedIn && <NavLink to={'/login'}>Login</NavLink>}
                     {!auth.isLoggedIn && <NavLink to={'/signup'}>Sign Up</NavLink>}
-                    {auth.isLoggedIn && <NavLink onClick={() => { auth.logout() }}>logout</NavLink>}
+                    {auth.isLoggedIn && <NavLink to={'/'} onClick={() => { auth.logout() }}>logout</NavLink>}
 
                 </div>
 
@@ -108,9 +108,9 @@ const Header = props => {
         </div>
         <div className={`rem ${menuButton?'content-res' :''}`}  >
                 <div className="links">
-                    <NavLink to='/home'>Popular</NavLink>
-                    <NavLink to='/home'>Discover</NavLink>
-                    <NavLink to='/home'>Bussines</NavLink>
+                    <NavLink to='/'>Popular</NavLink>
+                    <NavLink to='/'>Discover</NavLink>
+                    <NavLink to='/'>Bussines</NavLink>
 
                 </div>
  

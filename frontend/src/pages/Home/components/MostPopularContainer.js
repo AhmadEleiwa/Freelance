@@ -23,13 +23,13 @@ const MostPopularContainer = props =>{
             <p className="creator">item.user.name</p>
             <p className="title">item.product.productName</p>
             <p className="description">tem.product.description</p>
-            <NavLink>Find Out</NavLink>
+            <NavLink to={'/'}>Find Out</NavLink>
         </div>
         {item && <div className="content">
             <p className="creator">{item.user.name}</p>
             <p className="title">{item.product.productName}</p>
             <p className="description">{item.product.description}</p>
-            <NavLink>Find Out</NavLink>
+            <NavLink to={'/'}>Find Out</NavLink>
         </div>}
     </div>
 }

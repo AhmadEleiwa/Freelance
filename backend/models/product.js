@@ -14,7 +14,9 @@ const productSchema = Schema({
     price: {type:Number, default:0},
     totalEarns: {type:Number, default:0},
     owner: {type:mongoose.Types.ObjectId,required:true, ref:'User'},
-    tags:[{type:mongoose.Types.ObjectId,ref:'Tag'}]
+    tags:[{type:mongoose.Types.ObjectId,ref:'Tag'}],
+    createdDate:{type:Date}
+
 })
 
 
