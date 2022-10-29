@@ -2,6 +2,7 @@ const HttpError = require("../models/http-error")
 const Product = require("../models/product")
 const User = require('../models/user')
 const mongoose  = require("mongoose")
+const Tag = require("../models/tag")
 const getProducts = async (req,res, next)=> {
     let products
     try{
@@ -109,8 +110,8 @@ const searchProduct= async(req,res,next) =>{
 const createProduct  = async (req,res,next)=>{
 
   
-    const {productName, description, ownerId} = req.body
-    console.log(ownerId)
+    const {productName,tags, description, ownerId, price} = req.body
+
     let user
     try{
         user = await User.findById(ownerId)
@@ -120,13 +121,16 @@ const createProduct  = async (req,res,next)=>{
     if(!user){
         return next(new HttpError("could not to upload the product , please try another user"))
     }
-
+    let tagsFromDb = await Tag.find({_id:tags})
     const product = new Product({
         productName: productName,
         description:description,
+        price:price,
+        tags:tagsFromDb,
         owner:user.id,
-        file:'sss',
-        image:["file", 'ss']
+        file:req.files[0].path,
+        image:req.files.map(item => item.path).filter((item ,index) => index != 0),
+        createdDate: new Date().toISOString()
     })
     try{
         const sess = await mongoose.startSession()
@@ -201,6 +205,8 @@ const updateProduct = async (req,res,next) => {
     res.status(201).json({name:product.name, description:product.description})
 
 }   
+
+
 
 
 exports.getProducts = getProducts
