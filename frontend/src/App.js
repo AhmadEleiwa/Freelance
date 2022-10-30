@@ -8,6 +8,7 @@ import Auth from './pages/Auth/Auth';
 import { AuthContext } from './shared/context/auth-context';
 import { useCallback, useEffect, useState } from 'react';
 import Upload from './pages/Upload/Upload';
+import View from './pages/View/View';
 
 function App() {
   const [token, setToken] = useState()
@@ -78,6 +79,8 @@ function App() {
               </div>
             </Route>
             <Route path={'/upload'} exact><Upload /></Route>
+            <Route path={'/View'} exact><View /></Route>
+
 
 
             <Redirect  to={'/'}/>

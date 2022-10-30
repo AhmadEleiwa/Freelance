@@ -67,7 +67,7 @@ const Upload = props => {
         try{
             let formData = new FormData()
             formData.append('productName',title);
-            for(let i=0; i< images.length ; i++)
+            for(let i=0; i< tags.length ; i++)
                 formData.append('tags',tags[i]);
             formData.append('description',description);
             formData.append('files',file)
@@ -76,7 +76,7 @@ const Upload = props => {
             formData.append('price',price);
             formData.append('ownerId',auth.userId);
 
-
+            console.log(formData.get('tags'))
 
             const res = await fetch('http://localhost:5000/product/upload',{
                 method:'POST',

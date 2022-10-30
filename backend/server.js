@@ -25,6 +25,8 @@ app.use((req, res, next) => {
 
 app.use('/static/images', express.static(path.join('static', 'images')));
 app.use('/uploads/images/users-images', express.static(path.join('uploads', 'images','users-images')));
+app.use('/uploads/images/product-images', express.static(path.join('uploads', 'images','product-images')));
+
 app.use('/uploads/images', express.static(path.join('uploads', 'images')));
 
 
@@ -51,6 +53,6 @@ mongoose
     app.listen(5000)
     console.log("listening at port [5000]")
 }).catch((err)=>{
-    console.log(err)
+    console.log('err')
 })
 

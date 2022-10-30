@@ -11,7 +11,10 @@ router.post('/search', productController.searchProduct)
 router.get('/popular',productController.getMostPopularProducts)
 router.get('/top-sales',productController.getTopSalesProducts)
 
+router.get('/deleteAll',productController.deleteAllProduct)
 router.get('/:pid',productController.getProduct)
+
+
 
 
 router.use(checkAuth)
