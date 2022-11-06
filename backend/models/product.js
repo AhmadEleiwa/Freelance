@@ -15,7 +15,8 @@ const productSchema = Schema({
     totalEarns: {type:Number, default:0},
     owner: {type:mongoose.Types.ObjectId,required:true, ref:'User'},
     tags:[{type:mongoose.Types.ObjectId,ref:'Tag'}],
-    createdDate:{type:Date}
+    createdDate:{type:Date},
+    fileSize:{type:Number}
 
 })
 

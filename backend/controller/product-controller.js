@@ -148,7 +148,8 @@ const createProduct = async (req, res, next) => {
         tags: tag,
         file: req.files[0].path,
         image: req.files.map(item => item.path).filter((item, index) => index != 0),
-        createdDate: new Date().toISOString()
+        createdDate: new Date(),
+        fileSize: req.files[0].size
     })
 
     try {

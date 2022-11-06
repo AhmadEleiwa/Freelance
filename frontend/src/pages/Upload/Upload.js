@@ -95,6 +95,8 @@ const Upload = props => {
         setLoading(false)
 
     }
+    
+    document.title = "Upload"
     return <div className="container-upload"  style={{ backgroundImage: 'url(http://localhost:5000/static/images/image3.jpg)' }} >
 
         <LoadinSpinner  isLoading={loading}  />

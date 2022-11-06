@@ -173,7 +173,7 @@ const Auth = props => {
             .then(data => setUsers(data.users))
     }, [])
         
-
+    document.title = props.login  ? 'login' : "signup"
     return  <div className="auth-container" style={{ backgroundImage: 'url(http://localhost:5000/static/images/auth.jpg)' }} >
         {receivedCode && <div className="auth validate">
         <h1>Activate Your Email  </h1>

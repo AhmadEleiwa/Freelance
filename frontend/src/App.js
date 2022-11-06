@@ -40,7 +40,6 @@ function App() {
   }, [login])
 
 
-  console.log(token)
 
   return (
     <AuthContext.Provider
@@ -73,13 +72,18 @@ function App() {
           }
           {token && <Switch>
             <Route path={'/'}  exact >
-              <div>
+              <>
                 <Header />
                 <Home />
-              </div>
+              </>
             </Route>
             <Route path={'/upload'} exact><Upload /></Route>
-            <Route path={'/View'} exact><View /></Route>
+            <Route path={'/View/:pid'} exact>
+              <>
+              <Header minimal  />
+              <View />
+              </>
+              </Route>
 
 
 

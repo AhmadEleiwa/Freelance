@@ -9,6 +9,7 @@ import MostRatedPublisher from "./components/MostRatedPublisher";
 
 
 const Home = () =>{
+    document.title =  `Freelance` 
     return <div>
 
 

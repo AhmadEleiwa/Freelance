@@ -1,3 +1,43 @@
+.minimal-header {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.33);
+    padding: 5px 0;
+
+}
+
+.minimal-header .auth-btn a {
+    background-color: #42855B;
+    padding: 0.5em 2em;
+    border-radius: 3px;
+}
+
+.minimal-header .logo {
+    width: 100px;
+    height: 100px;
+}
+
+.minimal-header .search-bar {
+    display: flex;
+    width: 60%;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.minimal-header .search-bar .search input {
+    height: 80%;
+    border: 1px solid rgba(140, 139, 139, 0.508);
+}
+
+.minimal-header .search-bar .search button {
+    height: 80%;
+}
+
 .header {
     width: 100%;
     height: 36em;
@@ -225,11 +265,17 @@ a {
 .rem {
     display: none;
 }
+
 @media only screen and (max-width: 1280px) {
-    .profile p{
+    .profile p {
         font-size: 0.9em;
     }
+
+    .datalist {
+        display: none;
+    }
 }
+
 @media only screen and (max-width: 1000px) {
     .header {
         width: 100%;
@@ -268,7 +314,7 @@ a {
 
     .content-res .links a {
         margin: 15px;
-        
+
     }
 
     .header-content .logo {
@@ -331,27 +377,33 @@ a {
 
     }
 }
+
 @media only screen and (max-width: 720px) {
     .search-bar p {
         font-size: 1.4em;
     }
-    .auth-btn a{
+
+    .auth-btn a {
         font-size: smaller;
     }
-    .profile p{
+
+    .profile p {
         font-size: 0.76em;
     }
+
     .header-content .menu {
         width: 2em;
         height: 2em;
     }
+
     .header-content {
         width: 95%;
         /* margin:0 auto; */
 
     }
+
     .content-res .links a {
         font-size: large;
-        
-    }  
+
+    }
 }

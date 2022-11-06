@@ -74,14 +74,14 @@ const Header = props => {
             }).then((res) => res.json()).then(data => setUser(data.user))
     }, [auth.userId])
 
-    return <div className="header" style={{ backgroundImage: 'url(http://localhost:5000/static/images/image3.jpg)' , height:menuButton?"36em":""}} >
+    return <>{!props.minimal ? <div className="header" style={{ backgroundImage: 'url(http://localhost:5000/static/images/image3.jpg)', height: menuButton ? "36em" : "" }} >
         {searhFocus && <div className="black-shadow" onClick={() => { setSearchFocus(false) }}></div>}
         <div className="header-content" onClick={() => { setSearchFocus(false) }}>
             <div className="logo">
                 <img src={logo} alt="logo" />
             </div>
-            
-      
+
+
             <div className={`content`}  >
                 <div className="links">
                     <NavLink to='/'>Popular</NavLink>
@@ -100,21 +100,21 @@ const Header = props => {
                 </div>
 
             </div>
-            <div className="menu" onClick={()=>setMneuButton(!menuButton)}>
+            <div className="menu" onClick={() => setMneuButton(!menuButton)}>
                 <div />
                 <div />
                 <div />
             </div>
         </div>
-        <div className={`rem ${menuButton?'content-res' :''}`}  >
-                <div className="links">
-                    <NavLink to='/'>Popular</NavLink>
-                    <NavLink to='/'>Discover</NavLink>
-                    <NavLink to='/'>Bussines</NavLink>
+        <div className={`rem ${menuButton ? 'content-res' : ''}`}  >
+            <div className="links">
+                <NavLink to='/'>Popular</NavLink>
+                <NavLink to='/'>Discover</NavLink>
+                <NavLink to='/'>Bussines</NavLink>
 
-                </div>
- 
             </div>
+
+        </div>
         <div className={`search-bar`} onFocus={() => { setSearchFocus(true) }}   >
             <p>Gabrielle, Video Editor
                 Find the perfect freelance services for your business</p>
@@ -140,7 +140,39 @@ const Header = props => {
 
         </div>
 
+    </div> : <div className="minimal-header">
+        <div className="logo">
+            <img src={logo} alt="logo" />
+        </div>
+        <div className={`search-bar`} onFocus={() => { setSearchFocus(true) }}   >
+            <div className="search" >
+                <input list="lists" type={'search'} onKeyUp={selectDataListValue} onKeyDown={keydataListHandler} onChange={(event) => setSearchValue(event.target.value)} value={searchValue} />
+
+                <button style={{ borderTopRightRadius: searhFocus ? 0 : '5px', borderBottomRightRadius: searhFocus ? 0 : '5px' }} >search</button>
+
+            </div>
+
+            {searhFocus && searchContext &&
+
+                <datalist id="lists">
+                    {searchContext.map(item => <option
+                        key={item.id}
+                        value={item.id}
+                    >{item.productName}</option>)}
+                </datalist>
+            }
+
+        </div>
+        <div className="auth-btn">
+                    {!auth.isLoggedIn && <NavLink to={'/login'}>Login</NavLink>}
+                    {!auth.isLoggedIn && <NavLink to={'/signup'}>Sign Up</NavLink>}
+                    {auth.isLoggedIn && <NavLink to={'/'} onClick={() => { auth.logout() }}>logout</NavLink>}
+
+                </div>
+                
     </div>
+    }
+    </>
 }
 
 export default Header
