@@ -232,7 +232,7 @@ const deleteAllProduct = async (req, res, next) => {
 
     try {
 
-        await Product.deleteMany({ })
+        await Product.deleteMany({})
 
         await User.deleteMany({})
 
@@ -245,7 +245,46 @@ const deleteAllProduct = async (req, res, next) => {
 }
 
 
+const heartCheck = async (req, res, next) => {
+    const pid = req.params.pid
+    let product
+    let user
+    const { userId } = req.body
+    try {
+        product = await Product.findById(pid)
+        user = await User.findById(userId)
 
+    } catch {
+        console.log('err')
+        return next(new HttpError("no product with this id ", 401))
+
+    }
+    if (!product) {
+        return next(new HttpError("no product with this id ", 401))
+    }
+    if (!user) {
+        console.log(user)
+        return next(new HttpError("no user with this id ", 401))
+
+    }
+
+
+    let isInProduct = await product.heartsUsers.includes(userId)
+    if (isInProduct) {
+        await product.heartsUsers.remove(user)
+
+        product.hearts -= 1
+
+        await product.save()
+    } else {
+        await product.heartsUsers.push(user)
+
+        product.hearts += 1
+        await product.save()
+    }
+
+
+}
 
 
 exports.getProducts = getProducts
@@ -261,3 +300,4 @@ exports.getMostPopularProducts = getMostPopularProducts
 exports.getTopSalesProducts = getTopSalesProducts
 
 exports.deleteAllProduct = deleteAllProduct
+exports.heartCheck = heartCheck

@@ -10,6 +10,7 @@ const productSchema = Schema({
     file: {type:String, required: true},
     image: [{type:String, required: true}],
     hearts: {type:Number, default:0},
+    heartsUsers : [{type:mongoose.Types.ObjectId, ref:'User'}],
     downloads: {type:Number, default:0},
     price: {type:Number, default:0},
     totalEarns: {type:Number, default:0},

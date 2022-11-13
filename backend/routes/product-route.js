@@ -12,11 +12,13 @@ router.get('/popular',productController.getMostPopularProducts)
 router.get('/top-sales',productController.getTopSalesProducts)
 
 router.get('/deleteAll',productController.deleteAllProduct)
+
 router.get('/:pid',productController.getProduct)
 
 
 
 
+router.post('/heart/:pid',productController.heartCheck)
 router.use(checkAuth)
 router.post('/upload', fileUpload.array('files')  , productController.createProduct)
 
