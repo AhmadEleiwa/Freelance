@@ -2,6 +2,7 @@ const HttpError = require("../models/http-error")
 const User = require("../models/user")
 const bcrypt = require('bcryptjs')
 const jwt  = require('jsonwebtoken')
+const dotenv = require('dotenv').config()
 const nodemailer = require('nodemailer')
 
 const getUsers = async (req,res,next)=>{
@@ -147,9 +148,9 @@ const signup = async  (req,res,next)=>{
             secure:false,
             auth: {
                 user: 'ahmadilawa@gmail.com',
-                pass: 'mjvjwjbeguuruszg'
+                pass: process.env.emailPassword
             }
-            
+
         })
         const info = await transporter.sendMail({
             from:'Freelacne@gamil.com',
