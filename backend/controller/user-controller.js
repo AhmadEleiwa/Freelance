@@ -134,7 +134,7 @@ const signup = async  (req,res,next)=>{
     try{
         token = jwt.sign(
         {userId:user.id, email:user.email},
-        "app_token",
+        process.env.appToken,
         {expiresIn:'2h'}
         )
     }catch(err){
@@ -150,7 +150,7 @@ const signup = async  (req,res,next)=>{
                 user: 'ahmadilawa@gmail.com',
                 pass: process.env.emailPassword
             }
-
+            //  
         })
         const info = await transporter.sendMail({
             from:'Freelacne@gamil.com',
