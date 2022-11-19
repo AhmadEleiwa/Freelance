@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useRef, useState } from "react"
-import { useParams } from 'react-router-dom'
+import React, { useContext, useEffect, useState } from "react"
+import { NavLink, useParams , useHistory} from 'react-router-dom'
 import SimpleImageSlider from "react-simple-image-slider";
 import { AuthContext } from "../../shared/context/auth-context";
 import './View.css'
@@ -11,8 +11,12 @@ const View = () => {
     const [index, setIndex] = useState(0)
     const [heartColor, setHeartColor] = useState('ffffff')
     const [owner, setOwner] = useState()
+
     const { pid } = useParams()
+
     const auth = useContext(AuthContext)
+
+    const history = useHistory()
     useEffect(() => {
         const req = async () => {
             const res = await fetch(`http://localhost:5000/product/${pid}`, {
@@ -50,6 +54,9 @@ const View = () => {
         }
     }
     const heartHandler = async (event) => {
+        if(!auth.isLoggedIn){
+            history.replace('/login')
+        }
         let newColor = heartColor == 'ffffff' ? 'e32636' : 'ffffff'
         setHeartColor(newColor)
         const res = await fetch(`http://localhost:5000/product/heart/${pid}`, {
@@ -115,7 +122,7 @@ const View = () => {
                 <p >{product.downloads}</p>
             </div>
 
-            <button >Add To Cart</button>
+            {auth.isLoggedIn ? <button >Add To Cart</button> : <NavLink to={'/login'} >Add To Cart</NavLink>}
 
             <div className="decription">
                 <h2>Description</h2>

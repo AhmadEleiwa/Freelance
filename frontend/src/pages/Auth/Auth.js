@@ -194,6 +194,7 @@ const Auth = props => {
                     <input className={` ${username.isValid ? "" : "wrong"}`} required type={'password'} onChange={setPasswordChangeHandler} />
                     <p >{error}</p>
                     <button type={'submit'}  >login</button>
+                    <NavLink to={'/signup'} >I don't have an account ?</NavLink>
                     <LoadingSpinner isLoading={loading} />
                 </form>
             }

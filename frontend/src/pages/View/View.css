@@ -13,7 +13,7 @@
     margin-left: 2%;
 }
 
-.view-container .right button{
+.view-container .right button, .view-container .right a{
     width: 16em;
     background-color: #42855B;
     border:none;
@@ -24,10 +24,10 @@
     transition: all 0.17s ease-in-out;
     font-size: 1em;
     margin-top: 1em;
-
+    text-align: center;
 }
 
-.view-container .right button:hover{
+.view-container .right button:hover,.view-container .right a:hover{
     background-color: #90B77D;
 }
 

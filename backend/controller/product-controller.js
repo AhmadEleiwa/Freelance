@@ -70,20 +70,23 @@ const getProduct = async (req, res, next) => {
 const searchProduct = async (req, res, next) => {
     let fillteredProducts = []
 
-    const { productName } = req.body
+    let { productName } = req.body
+  
+    productName = productName.toUpperCase()
+    console.log(productName)
     if (productName != "")
         try {
             let products = await Product.find({})
             for (let i = 0; i < products.length; i++) {
-                if (productName === products[i].productName) {
+                if (productName === products[i].productName.toUpperCase()) {
                     fillteredProducts.push(products[i])
                 }
-                else if (products[i].productName.search(productName) != -1) {
+                else if (products[i].productName.toUpperCase().search(productName) != -1) {
                     fillteredProducts.push(products[i])
                 }
                 else {
                     let words = productName.split(" ")
-                    let searchProduct = products[i].productName.split(" ")
+                    let searchProduct = products[i].productName.toUpperCase().split(" ")
                     let c = 0
                     for (let j = 0; j < words.length; j++) {
                         if (j >= searchProduct.length)

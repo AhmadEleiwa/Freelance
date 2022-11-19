@@ -9,6 +9,7 @@ import { AuthContext } from './shared/context/auth-context';
 import { useCallback, useEffect, useState } from 'react';
 import Upload from './pages/Upload/Upload';
 import View from './pages/View/View';
+import SearchViewPage from './pages/SearchView/SearchViewPage';
 
 function App() {
   const [token, setToken] = useState()
@@ -55,23 +56,35 @@ function App() {
         <main>
           {!token && <Switch>
 
-          
-  
+
+
             <Route path='/login'  ><Auth login /></Route>
             <Route path='/signup'  ><Auth signup /></Route>
-
+            <Route path={'/View/:pid'} exact>
+              <>
+                <Header minimal />
+                <View />
+              </>
+            </Route>
+            <Route path={'/search/:name'} exact>
+              <>
+                <Header minimal />
+                <SearchViewPage />
+              </>
+            </Route>
             <Route path={'/'}   >
               <div>
                 <Header />
                 <Home />
               </div>
             </Route>
-            <Redirect  to={'/'}/>
+            
+            <Redirect to={'/'} />
 
           </Switch>
           }
           {token && <Switch>
-            <Route path={'/'}  exact >
+            <Route path={'/'} exact >
               <>
                 <Header />
                 <Home />
@@ -80,14 +93,21 @@ function App() {
             <Route path={'/upload'} exact><Upload /></Route>
             <Route path={'/View/:pid'} exact>
               <>
-              <Header minimal  />
-              <View />
+                <Header minimal />
+                <View />
               </>
-              </Route>
+            </Route>
+            <Route path={'/search/:name'} exact>
+              <>
+                <Header minimal />
+                <SearchViewPage />
+              </>
+            </Route>
 
 
 
-            <Redirect  to={'/'}/>
+
+            <Redirect to={'/'} />
 
 
           </Switch>

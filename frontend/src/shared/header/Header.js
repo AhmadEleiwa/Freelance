@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import './Header.css'
 import logo from './../../logo.png'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useHistory } from 'react-router-dom'
 import { AuthContext } from "../context/auth-context";
 const Header = props => {
     const [searchValue, setSearchValue] = useState("")
@@ -13,7 +13,7 @@ const Header = props => {
     const [menuButton, setMneuButton] = useState(false)
 
     const datalist = useRef()
-
+    const history = useHistory()
     const auth = useContext(AuthContext)
 
 
@@ -74,12 +74,19 @@ const Header = props => {
             }).then((res) => res.json()).then(data => setUser(data.user))
     }, [auth.userId])
 
+
+    const searchSubmitHandler = event => {
+        event.preventDefault()
+        history.push(`/search/${searchValue}`)
+    }
+
     return <>{!props.minimal ? <div className="header" style={{ backgroundImage: 'url(http://localhost:5000/static/images/image3.jpg)', height: menuButton ? "36em" : "" }} >
         {searhFocus && <div className="black-shadow" onClick={() => { setSearchFocus(false) }}></div>}
         <div className="header-content" onClick={() => { setSearchFocus(false) }}>
-            <div className="logo">
+            <NavLink className="logo" to={'/'}>
+
                 <img src={logo} alt="logo" />
-            </div>
+            </NavLink>
 
 
             <div className={`content`}  >
@@ -118,12 +125,12 @@ const Header = props => {
         <div className={`search-bar`} onFocus={() => { setSearchFocus(true) }}   >
             <p>Gabrielle, Video Editor
                 Find the perfect freelance services for your business</p>
-            <div className="search" >
+            <form className="search" onSubmit={searchSubmitHandler} >
                 <input list="lists" type={'search'} onKeyUp={selectDataListValue} onKeyDown={keydataListHandler} onChange={(event) => setSearchValue(event.target.value)} value={searchValue} />
 
                 <button style={{ borderTopRightRadius: searhFocus ? 0 : '5px', borderBottomRightRadius: searhFocus ? 0 : '5px' }} >search</button>
 
-            </div>
+            </form>
 
             {searhFocus && searchContext &&
 
@@ -141,35 +148,36 @@ const Header = props => {
         </div>
 
     </div> : <div className="minimal-header">
-        <div className="logo">
+        <NavLink className="logo" to={'/'}>
+
             <img src={logo} alt="logo" />
-        </div>
+        </NavLink>
         <div className={`search-bar`} onFocus={() => { setSearchFocus(true) }}   >
-            <div className="search" >
+            <form className="search" onSubmit={searchSubmitHandler} >
                 <input list="lists" type={'search'} onKeyUp={selectDataListValue} onKeyDown={keydataListHandler} onChange={(event) => setSearchValue(event.target.value)} value={searchValue} />
 
                 <button style={{ borderTopRightRadius: searhFocus ? 0 : '5px', borderBottomRightRadius: searhFocus ? 0 : '5px' }} >search</button>
 
-            </div>
+            </form>
 
             {searhFocus && searchContext &&
 
                 <datalist id="lists">
                     {searchContext.map(item => <option
                         key={item.id}
-                        value={item.id}
+                        value={item.productName}
                     >{item.productName}</option>)}
                 </datalist>
             }
 
         </div>
         <div className="auth-btn">
-                    {!auth.isLoggedIn && <NavLink to={'/login'}>Login</NavLink>}
-                    {!auth.isLoggedIn && <NavLink to={'/signup'}>Sign Up</NavLink>}
-                    {auth.isLoggedIn && <NavLink to={'/'} onClick={() => { auth.logout() }}>logout</NavLink>}
+            {!auth.isLoggedIn && <NavLink to={'/login'}>Login</NavLink>}
+            {!auth.isLoggedIn && <NavLink to={'/signup'}>Sign Up</NavLink>}
+            {auth.isLoggedIn && <NavLink to={'/'} onClick={() => { auth.logout() }}>logout</NavLink>}
 
-                </div>
-                
+        </div>
+
     </div>
     }
     </>

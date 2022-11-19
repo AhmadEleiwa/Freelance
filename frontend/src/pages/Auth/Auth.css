@@ -85,6 +85,11 @@
     background-color: #90B77D;
 }
 
+.auth .login-form a{
+    color: rgba(72, 146, 211, 0.673);
+    text-decoration: underline;
+}
+
 .validate .login-form button{
     border:1px solid #2e373084;
     background-color: transparent;

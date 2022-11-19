@@ -142,7 +142,7 @@ const signup = async  (req,res,next)=>{
     }
     try{
         await user.save()
-        const transporter = await nodemailer.createTransport({
+        const transporter =  nodemailer.createTransport({
             host: 'smtp.gmail.com',
             port:587 ,
             secure:false,
