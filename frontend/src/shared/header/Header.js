@@ -91,8 +91,8 @@ const Header = props => {
 
             <div className={`content`}  >
                 <div className="links">
-                    <NavLink to='/'>Popular</NavLink>
-                    <NavLink to='/'>Discover</NavLink>
+                    <NavLink to='/products'>Popular</NavLink>
+                    <NavLink to='/products'>Discover</NavLink>
                     <NavLink to='/'>Bussines</NavLink>
 
                 </div>

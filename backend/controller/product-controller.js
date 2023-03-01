@@ -48,6 +48,7 @@ const getMostPopular = async (req, res, next) => {
         user = await User.findById(products[0].owner)
     } catch (err) {
         return next(new HttpError("could not found any product ", 401))
+        
     }
 
     res.status(201).json({ product: products[0].toObject({ getters: true }), user: user.toObject({ getters: true }) })
@@ -71,38 +72,11 @@ const searchProduct = async (req, res, next) => {
     let fillteredProducts = []
 
     let { productName } = req.body
-  
-    productName = productName.toUpperCase()
-    console.log(productName)
     if (productName != "")
         try {
-            let products = await Product.find({})
-            for (let i = 0; i < products.length; i++) {
-                if (productName === products[i].productName.toUpperCase()) {
-                    fillteredProducts.push(products[i])
-                }
-                else if (products[i].productName.toUpperCase().search(productName) != -1) {
-                    fillteredProducts.push(products[i])
-                }
-                else {
-                    let words = productName.split(" ")
-                    let searchProduct = products[i].productName.toUpperCase().split(" ")
-                    let c = 0
-                    for (let j = 0; j < words.length; j++) {
-                        if (j >= searchProduct.length)
-                            break
-                        if (words[c] === searchProduct[j]) {
-                            c += 1
-                        }
-                    }
-                    if (searchProduct.length == 2 && c / searchProduct.length >= 0.50) {
-                        fillteredProducts.push(products[i])
-                    }
-                    else if (c / searchProduct.length >= 0.70) {
-                        fillteredProducts.push(products[i])
-                    }
-                }
-            }
+            let tag = await Tag.findOne({ tagName: { $regex: productName } })
+            fillteredProducts = await Product.find({ $or: [{ tags: tag }, { productName: { $regex: productName } }] })
+
         } catch (err) {
             return next(new HttpError("could found the product ", 401))
         }
@@ -175,7 +149,7 @@ const deleteProduct = async (req, res, next) => {
     const pid = req.params.pid
     console.log(pid)
     let product
-    let user
+    let user    
     try {
         product = await Product.findById(pid)
         user = await User.findOne(product.owner)
@@ -208,7 +182,7 @@ const deleteProduct = async (req, res, next) => {
 
 const updateProduct = async (req, res, next) => {
     const pid = req.params.pid
-    const { name, description } = req.body
+    const { productName, description, tags, price } = req.body
     let product
     let user
     try {
@@ -223,8 +197,14 @@ const updateProduct = async (req, res, next) => {
     if (req.userData.userId !== user.id) {
         return next(new HttpError("You are not allowed to update this product ", 401))
     }
-    product.name = name
-    product.description = description
+
+    console.log(productName)
+    if (req.files.length != 0 && req.files[0].mimetype == 'application/zip') {
+        await product.updateOne({ productName: productName, description, tags, price, file: req.files[0].path, fileSize: req.files[0].size })
+
+    } else {
+        await product.updateOne({ productName: productName, description, tags, price })
+    }
     res.status(201).json({ name: product.name, description: product.description })
 
 }

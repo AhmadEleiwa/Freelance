@@ -97,11 +97,9 @@ const Upload = props => {
     }
     
     document.title = "Upload"
-    return <div className="container-upload"  style={{ backgroundImage: 'url(http://localhost:5000/static/images/image3.jpg)' }} >
-
-        <LoadinSpinner  isLoading={loading}  />
+    return  <div className="container-upload"  style={{ backgroundImage: 'url(http://localhost:5000/static/images/image3.jpg)' }} >
+        <LoadinSpinner  isLoading={loading}  /> 
         <div className="upload">
-            
             <h1>Upload Product</h1>
             <form onSubmit={submitHandler}>
                 <label>Title</label>
@@ -111,7 +109,6 @@ const Upload = props => {
                 <select className="tags" multiple onChange={tagsSelectorHandler}>
                     {tagsDB && tagsDB.map(tag => <option key={tag.id} value={tag.id}>{tag.tagName}</option>)}
                 </select>
-                {tags}
 
                 <label>Description</label>
                 <textarea className="description" onChange={event => setDescription(event.target.value)} />
@@ -141,7 +138,8 @@ const Upload = props => {
 
                 <button type="submit" >upload</button>
             </form>
-        </div>
+        </div>            
+        
         
     </div>
 }

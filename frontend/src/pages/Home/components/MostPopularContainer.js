@@ -13,17 +13,17 @@ const MostPopularContainer = props =>{
                 'Content-Type': 'application/json'
               },
         }).then(res => res.json()).then(data => data.message? console.log(data.message):setItem(data) )
-
+        // console.log(item.product)
         
     },[item])
     return <div className="most-popular">
-        <img src={`http://localhost:5000/static/images/image1.jpg`} alt="None" />
-
+        {item&& <div className="img" style={{backgroundImage:`url(http://localhost:5000/${item.product.image[0]})`}} ></div>}
+        
         {item && <div className="content">
             <p className="creator">{item.user.name}</p>
             <p className="title">{item.product.productName}</p>
             <p className="description">{item.product.description}</p>
-            <NavLink to={'/'}>Find Out</NavLink>
+            <NavLink to={`/view/${item.product.id}`}>Find Out</NavLink>
         </div>}
     </div>
 }

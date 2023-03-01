@@ -20,12 +20,14 @@ const GenersContainer = props =>{
         <div className="list">
         {tags && tags.map(item =>
         <div key={item.id} className="card">
-            <NavLink to={'/'} className="card-img"  style={{backgroundImage:`url(http://localhost:5000/static/images/${item.image})`}} >
+        
+            <NavLink to={`search/${item.tagName}`}className="card-img"  style={{backgroundImage:`url(http://localhost:5000/static/images/${item.image})`}} >
             <div className="black-shadow"></div>
             <h2>{item.tagName}</h2>
             </NavLink>
             <h3>{item.tagName}</h3>
             <p>{item.tagDescription}</p>
+
         </div>
         )}
     </div>

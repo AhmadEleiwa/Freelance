@@ -5,12 +5,16 @@
     margin: auto;
     display: flex;
     border-radius: 7px;
-    box-shadow: 0 0 4px 1px #2f2f2f;
+    /* box-shadow: 0 0 2em 0.5em #b8b7b78d; */
+   
 }
 
-.most-popular img {
+.most-popular .img {
     width: 70%;
     height: 100%;
+    background-position: 50%;
+    background-size: cover;
+    background-color: #2c2c2c;
     border-radius: 2px 0px 0px 2px;
 }
 
@@ -46,15 +50,16 @@
 
 .most-popular .content .description {
     color: #d6d6d6;
-    word-break: break-all;
+    font-size: 0.9em;
 
+    padding-right: 3em;
 
 }
 
 .most-popular .content a {
     width: 5em;
     text-align: center;
-    background-color: #42855B;
+    background-color: var(--plat);
     padding: 7px 10px;
     font-size: 1.4em;
     border-radius: 3px;
@@ -62,7 +67,7 @@
 }
 
 .most-popular .content a:hover {
-    background-color: #90B77D;
+    background-color: var(--light-plat);
 
 }
 

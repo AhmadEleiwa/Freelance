@@ -1,5 +1,5 @@
 .footer{
-    height: 45em;
+    height: 35em;
     /* background-color: #283739; */
     /* background-color: #191919; */
     margin-top: 5em;
@@ -9,7 +9,7 @@
 .footer .content{
     height: 80%;
     width: 70%;
-    border-bottom: 1px solid rgba(123, 123, 123, 0.444);
+    border-bottom: 1px solid rgba(123, 123, 123, 0.141);
     margin: 2em auto;
 }
 

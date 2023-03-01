@@ -6,7 +6,23 @@
   height: 40vmin;
   pointer-events: none;
 }
+*{
+  /* font-family: 'Inter', sans-serif ; */
+  font-family: 'Montserrat', sans-serif  !important;
+  /* font-family: 'Tajawal', sans-serif !important; */
+}
+body{
+  /* background-color: #0f0f0f; */
+  /* color: white  ; */
+}
+:root{
+  --plat:#537FE7;
+  --light-plat:#698ee6;
+  --dark:#0f0f0f;
+  --dark-shadow: #1f1f1f;
+  --dark-light: #2f2f2f;
 
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

@@ -25,6 +25,6 @@ router.post('/upload', fileUpload.array('files')  , productController.createProd
 
 
 router.delete('/delete/:pid', productController.deleteProduct)
-router.patch('/update/:pid', productController.updateProduct)
+router.patch('/update/:pid',fileUpload.array('files'), productController.updateProduct)
 
 module.exports = router

@@ -8,9 +8,9 @@ import MostRatedPublisher from "./components/MostRatedPublisher";
 
 
 
-const Home = () =>{
+const Home = props =>{
     document.title =  `Freelance` 
-    return <div>
+    return <div >
 
 
         <DiscoverContainer />

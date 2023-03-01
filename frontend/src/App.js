@@ -8,8 +8,10 @@ import Auth from './pages/Auth/Auth';
 import { AuthContext } from './shared/context/auth-context';
 import { useCallback, useEffect, useState } from 'react';
 import Upload from './pages/Upload/Upload';
+import Delete from './pages/Delete/Delete';
 import View from './pages/View/View';
 import SearchViewPage from './pages/SearchView/SearchViewPage';
+import Update from './pages/Update/Update';
 
 function App() {
   const [token, setToken] = useState()
@@ -69,9 +71,20 @@ function App() {
             <Route path={'/search/:name'} exact>
               <>
                 <Header minimal />
-                <SearchViewPage />
+                <SearchViewPage search />
               </>
             </Route>
+            <Route path={'/products'} exact>
+              <>
+                <Header minimal />
+                <SearchViewPage  />
+              </>
+            </Route>
+
+            <Route path={'/Update/:pid'} exact>
+                <Update  />
+            </Route>
+   
             <Route path={'/'}   >
               <div>
                 <Header />
@@ -97,11 +110,24 @@ function App() {
                 <View />
               </>
             </Route>
+            <Route path={'/delete/:pid'} exact>
+                <Delete  />
+            </Route>
             <Route path={'/search/:name'} exact>
               <>
                 <Header minimal />
-                <SearchViewPage />
+                <SearchViewPage search />
               </>
+            </Route>
+            <Route path={'/products'} exact>
+              <>
+                <Header minimal />
+                <SearchViewPage  />
+              </>
+            </Route>
+
+            <Route path={'/Update/:pid'} exact>
+                <Update  />
             </Route>
 
 

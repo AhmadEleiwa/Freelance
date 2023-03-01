@@ -31,6 +31,7 @@ const View = () => {
                 setImages(data.product.image)
                 setProduct(data.product)
                 getOwner(data.product.owner)
+                console.log(data.product.tags)
                 if (data.product.heartsUsers.includes(auth.userId)) {
                     setHeartColor('e32636')
                 }
@@ -50,6 +51,7 @@ const View = () => {
         })
         let data = await res.json()
         if (res.ok) {
+            console.log(data.user)
             setOwner(data.user)
         }
     }
@@ -84,7 +86,7 @@ const View = () => {
             {images && <div className="img">
                 <img className="heart-btn" onClick={heartHandler} src={`https://img.icons8.com/material-rounded/34/${heartColor}/loading-heart.png`} />
 
-                <img className="image" src={`http://localhost:5000/${images[index]}`} alt="None" />
+                <div className="image" style={{backgroundImage:`url(http://localhost:5000/${images[index]})`}} > </div>
             </div>}
             {images && <p className="ind">{index + 1} / {images.length}</p>}
             {images && <div className="list" >
@@ -122,11 +124,17 @@ const View = () => {
                 <p >{product.downloads}</p>
             </div>
 
-            {auth.isLoggedIn ? <button >Add To Cart</button> : <NavLink to={'/login'} >Add To Cart</NavLink>}
+            <div className="flex">
+                {auth.isLoggedIn ? <button >ADD TO CART</button> : <NavLink to={'/login'} >Add To Cart</NavLink>}
+                {auth.userId === owner.id ? <NavLink className="danger" to={`/delete/${product.id}`}>DELETE</NavLink>  : ''}
+                {auth.userId === owner.id ? <NavLink className="warning" to={`/update/${product.id}`} >EDIT</NavLink>  : ''}
+
+            </div>
 
             <div className="decription">
                 <h2>Description</h2>
                 <p >{product.description}</p>
+                <p>{}</p>
             </div>
         </div>
 

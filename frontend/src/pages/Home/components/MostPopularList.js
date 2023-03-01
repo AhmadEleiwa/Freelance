@@ -37,7 +37,8 @@ const MostPopularList = props => {
         <div className='items-list'>
             {item && item.map(item => <div key={item.id} className="card">
                 <NavLink to={'/view/'+item.id} className="card-img"   >
-                    <img src={`http://localhost:5000/${item.image[0]}`} alt='None' />
+                    {/* <img src={`http://localhost:5000/${item.image[0]}`} alt='None' /> */}
+                    <div className='img' style={{backgroundImage:`url(http://localhost:5000/${item.image[0]})`}} ></div>
                     <p className='title'>{item.productName}</p>
                     <p className='decsription'>{item.description.length > 30 ? item.description.substring(0, 30) + "..." : item.description.substring(0, 30)}</p>
                 </NavLink>

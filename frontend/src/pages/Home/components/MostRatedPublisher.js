@@ -21,7 +21,8 @@ const MostRatedPublisher = () => {
             {users && users.map(user =>
                 <NavLink to={'/'} key={user.id}>
                     <div className="card">
-                        <img src={`http://localhost:5000/${user.image}`} alt="" />
+                        <div className="img" style={{backgroundImage:`url(http://localhost:5000/${user.image})`}} ></div>
+                        {/* <img src={`http://localhost:5000/${user.image}`} alt="" /> */}
                         <p>{user.name}</p>
                     </div>
                 </NavLink>

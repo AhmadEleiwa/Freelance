@@ -12,9 +12,9 @@
 
 .publisher-container .list {
     width: 100%;
-    height: 60%;
+    height: 70%;
     display: flex;
-    justify-content: space-around;
+    /* justify-content: space-around; */
 
     
 }
@@ -23,7 +23,7 @@
     width: 12em;
     height: 100%;
     display: flex;
-    margin: 3em 0;
+    margin: 3em 1em;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -35,12 +35,14 @@
 
 .publisher-container .list .card:hover {
     rotate: -2deg;
-    width: 12.7em;
 
 }
 
-.publisher-container .list .card img {
+.publisher-container .list .card .img {
     width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: 50%;
     border-radius: 3px;
 }
 

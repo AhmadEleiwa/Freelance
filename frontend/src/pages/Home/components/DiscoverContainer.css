@@ -6,13 +6,13 @@
     position: relative;
     background-repeat: no-repeat;
     background-size:cover;
-    transition: all  0.34s ease-in;
+    transition: all  0.64s ease;
     box-shadow: 0px 0px 3px 0px black;
     background-position: center;
     
 }
 .discover:hover{
-    background-position: 60% 60%;
+    background-position: 20% 20%;
 
 
 }
@@ -39,13 +39,13 @@
     border:none;
     border-radius: 5px;
     padding:10px 10px;
-    background-color: #42855B;
+    background-color: var(--plat);
     cursor: pointer;
     z-index: 3;
 }
 
 .discover .content a:hover{
-    background-color: #90B77D;
+    background-color: var(--light-plat);
 }
 .discover h1{
     z-index: 3;

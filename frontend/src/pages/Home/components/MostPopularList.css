@@ -1,5 +1,5 @@
 .container{
-    width: 70%;
+    width: 80%;
     margin: 5em auto;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -27,22 +27,25 @@
 .container h2{
     font-size: 2em;
 }
-.items-list{
+.container .items-list{
     width: 100%;
-    height:auto;
+    height: 8em;
     margin-top: 3em;
-    display: grid;
-    grid-template-columns: auto auto auto auto  auto;
+    display: flex;
+    flex-wrap: wrap;
+    
 
 }
-.items-list .card{
-    width: 14em;
-    height: 100%;
-    margin: 5px;
-    margin-bottom: 2em;
+.container .items-list .card{
+ 
+
     transition: all 0.17s ease-in-out;
 }
-.items-list .card:hover img{
+.container .items-list .card .card-img{
+    transition: all 0.17s ease;
+}
+
+.items-list .card:hover .card-img{
     opacity: 0.9;
 }
 .items-list .card p{
@@ -62,11 +65,14 @@
   font-size: small;
 }
 
-.items-list .card img{
+.items-list .card .img{
     width: 90%;
-    min-height: 60%;
-    box-shadow:  0 0 1px 0  black;
+    min-height: 100%;
+    background-position: 50%;
+    background-size: cover;
+    box-shadow:  0 0 0.1em 0.1em  rgba(89, 88, 88, 0.395);
     border-radius: 3px;
     transition: all 0.17s ease-in-out;
 
 }
+

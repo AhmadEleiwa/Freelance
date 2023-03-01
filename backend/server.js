@@ -46,13 +46,12 @@ app.use((error, req, res, next) => {
 
 
 
-mongoose
-.connect(process.env.mongoPath)
+mongoose.connect(process.env.mongoPath, { useNewUrlParser: true, useUnifiedTopology: true })
 .then(()=>{
     console.log("connecting to Database")
     app.listen(5000)
     console.log("listening at port [5000]")
 }).catch((err)=>{
-    console.log('err')
+    console.log(err)
 })
 

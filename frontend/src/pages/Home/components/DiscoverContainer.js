@@ -9,9 +9,10 @@ const DiscoverContainer = props =>{
             <div className="black-shadow"></div>
             <div className="content">
                 <h1>Discover More</h1> 
+                
 
                 <p>Find assets you've never seen before</p>
-                <NavLink to={'/'}>Discover</NavLink>
+                <NavLink to={'/products'}>Discover</NavLink>
             </div>
     </div>
 }
