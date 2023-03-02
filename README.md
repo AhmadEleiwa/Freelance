@@ -49,5 +49,5 @@ If the user already exists, it immediately disables the submit button
 <img src='assets/invalide.png' style="width:100%;" />
 
 ## Preview of product
-All products must have title, description, createdDate, author, genres(tags) and price. 
+All products must have title, description, createdDate, author, genres(tags) and price. Only the owner of this product can Delete & Edit it. The others won't show them the delete & edit buttons. 
 <img src='assets/preview.png' style="width:100%;" />
