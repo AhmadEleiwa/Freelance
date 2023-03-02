@@ -56,14 +56,4 @@ All products must have title, description, createdDate, author, genres(tags) and
 > 
 > Working on advance search
 
-## Programming languages & Tools
-
-
-<div style="width=100%;background-color:red; display:flex; flex-direction:column">
-    <p>sss</p>
-    <p>sss</p>
-    <p>sss</p>
-    <p>sss</p>
-
-</div>
 
