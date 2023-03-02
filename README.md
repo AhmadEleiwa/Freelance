@@ -36,24 +36,24 @@ All products must have title, description, createdDate, author, genres(tags) and
 
 * Authentication system
  
-> Email validator 
-> 
-> Product manpluation  system
-> 
-> Preview product page
-> 
-> Search system
-> 
-> No SQL Database 
-> 
-> Working on API
+* Email validator 
+ 
+* Product manpluation  system
+ 
+* Preview product page
+ 
+* Search system
+ 
+* No SQL Database 
+ 
+* Working on API
 
 ### Future Features
 
-> Dashboard 
-> 
-> User manpluation system
-> 
-> Working on advance search
+* Dashboard 
+ 
+* User manpluation system
+
+* Working on advance search
 
 
