@@ -58,14 +58,7 @@ All products must have title, description, createdDate, author, genres(tags) and
 
 ## Programming languages & Tools
 
-- HTML
-
-- CSS
-
-- JS
-
-- react.js
-
-- Node.js
-
-- MongoDB
+| HTML | React   |
+| ---- | ------- |
+| CSS  | Node.js |
+| JS   | MongoDB |
