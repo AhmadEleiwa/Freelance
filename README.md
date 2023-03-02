@@ -42,7 +42,7 @@ First of all you need to install node.js. After installing node.js, you have to 
 
 ## Authentication 
 The sign up and the login pages are in the same file. That's mean it's easy to switch between them without lost of data.
-## Sign up page
+### Sign up page
 <img src='assets/auth.png' style="width:100%;" />
 
 ### When the user is already exist 
