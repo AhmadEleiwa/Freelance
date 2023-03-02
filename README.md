@@ -34,8 +34,8 @@ All products must have title, description, createdDate, author, genres(tags) and
 
 ### Provided Services
 
-> Authentication system
-> 
+* Authentication system
+ 
 > Email validator 
 > 
 > Product manpluation  system
