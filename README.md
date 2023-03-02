@@ -14,8 +14,8 @@ First of all you need to install node.js. After installing node.js, you have to 
 
 
 
-## What Services are provided
-
+## What Services are provided & what are not
+### Provided Services
 > Authentication system
 > 
 > Email validator 
@@ -30,8 +30,7 @@ First of all you need to install node.js. After installing node.js, you have to 
 > 
 > Working on API
 
-## Future Features
-
+### Future Features
 > Dashboard 
 > 
 > User manpluation system
