@@ -1,14 +1,13 @@
 # Freelance
 
-Freelance is a free-space hosting website built using MERN stack.  The site allow you to upload your projects (products) in the site.  You can also access the other products. You can put like to them or to buy it. The site has a authentication system. 
+Freelancing is a free-space hosting website built using MERN stack. The site allows you to upload your projects (products) in the site. You can also access the other users products. You can put like to them or buy it. Aslo, the site has an authentication system.
 
-We used MERN stack in this project becouse the flexablity of js  and the power of Node.js. With react is esaily to build an interactive website. 
+I used MERN stack in this project because the flexibility of js  and the power of Node.js. With react it is easy to build an interactive website.
 
-The most problem that faced us is that in  authentication. It have to check whatever the                email is exist or not. So, we had to use google api to send a code to the email that was formed. Then after that, the frontend have to wait untill insert the genrate code that was sended
+The most problem that faced me is that during  authentication. It has to check whatever the email exists or not. So, I had to use google API to send a code to the email that was inserted. Then after that, the front-end app has to wait until insert the generated code that was sent.
 
 ## How To Run
 
-first of all you need to install node.js. After installing node.js, you have to run server app and client app individual. After running the app should be like shown below
+first of all you need to install node.js. After installing node.js, you have to run server app and client app individual by using npm start. After running the project, the app should be like as shown below.
 
 <img src='image.png' style="width:100%;" />
-
