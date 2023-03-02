@@ -14,7 +14,7 @@ First of all you need to install node.js. After installing node.js, you have to 
 
 
 
-## What Services are provided & what are not
+## What Services are provided ?
 ### Provided Services
 > Authentication system
 > 
