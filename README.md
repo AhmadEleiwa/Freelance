@@ -58,8 +58,8 @@ All products must have title, description, createdDate, author, genres(tags) and
 
 ## Programming languages & Tools
 
-<div style='width:100%'>
-    <table style='width;100%; border:none;'>
+
+<table style='width;100%; border:none;'>
     <tr style='width:100%'>
         <td> HTML</td>
         <td> CSS</td>
@@ -76,4 +76,4 @@ All products must have title, description, createdDate, author, genres(tags) and
         <td> MongoDB</td>
     </tr>
 </table>
-</div>
+
