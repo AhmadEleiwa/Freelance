@@ -58,10 +58,17 @@ All products must have title, description, createdDate, author, genres(tags) and
 
 ## Programming languages & Tools
 
-<div>
-<table>
+<div style='width:100%'>
+    <table>
     <tr>
-    <td> HTML<td/>
-</tr>
+        <td> HTML</td>
+        <td> CSS</td>
+        <td> JS</td>
+    </tr>   
+        <tr>
+        <td> React</td>
+        <td> Nodejs</td>
+        <td> MongoDB</td>
+    </tr>  
 </table>
 </div>
