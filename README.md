@@ -46,5 +46,6 @@ The sign up and the login pages are in the same file. That's mean it's easy to s
 <img src='assets/auth.png' style="width:100%;" />
 
 ### When the user is already exist 
+If the user already exists, it immediately disables the submit button
 <img src='assets/invalide.png' style="width:100%;" />
 
