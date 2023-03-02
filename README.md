@@ -59,7 +59,7 @@ All products must have title, description, createdDate, author, genres(tags) and
 ## Programming languages & Tools
 
 
-<div style="width=100%; display:flex;">
+<div style="width=100%; display:flex; flex-direction:column">
     <p>sss</p>
     <p>sss</p>
     <p>sss</p>
