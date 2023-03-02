@@ -60,17 +60,17 @@ All products must have title, description, createdDate, author, genres(tags) and
 
 <div style='width:100%'>
     <table style='width;100%; border:none;'>
-    <tr>
+    <tr style='width:100%'>
         <td> HTML</td>
         <td> CSS</td>
         <td> JS</td>
     </tr>   
-    <tr>
+    <tr style='width:100%'>
         <td> React</td>
         <td> Nodejs</td>
         <td> MongoDB</td>
     </tr>    
-    <tr>
+    <tr style='width:100%'>
         <td> Postman</td>
         <td> Nodejs</td>
         <td> MongoDB</td>
