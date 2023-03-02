@@ -1,5 +1,3 @@
-# 
-
 # Freelance
 
 Freelance is a free-space hosting website built using MERN stack.  The site allow you to upload your projects (products) in the site.  You can also access the other products. You can put like to them or to buy it. The site has a authentication system. 
