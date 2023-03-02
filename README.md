@@ -10,5 +10,5 @@ The most problem that faced us is that in  authentication. It have to check what
 
 first of all you need to install node.js. After installing node.js, you have to run server app and client app individual. After running the app should be like shown below
 
-<img src='image.png' style="height: 100px; width:100px;" />
+<img src='image.png' style="width:100%;" />
 
