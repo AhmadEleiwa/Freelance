@@ -10,13 +10,7 @@ The most problem that faced me is that during  authentication. It has to check w
 
 First of all you need to install node.js. After installing node.js, you have to run the server app and client app as individuals by using npm start. After running the project, the app should be like as shown below.
 
-
-
 <img src='image.png' style="width:100%;" />
-
-
-
-
 
 ## What Services are provided
 
@@ -24,10 +18,20 @@ First of all you need to install node.js. After installing node.js, you have to 
 > 
 > Email validator 
 > 
-> Manpluation product system
+> Product manpluation  system
 > 
 > Preview product page
 > 
+> Search system
+> 
 > No SQL Database 
+> 
+> Working on API
 
+## Future Features
 
+> Dashboard 
+> 
+> User manpluation system
+> 
+> Working on advance search
