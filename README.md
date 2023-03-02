@@ -59,21 +59,11 @@ All products must have title, description, createdDate, author, genres(tags) and
 ## Programming languages & Tools
 
 
-<table style='width;100%; border:none;'>
-    <tr style='width:100%'>
-        <td> HTML</td>
-        <td> CSS</td>
-        <td> JS</td>
-    </tr>   
-    <tr style='width:100%'>
-        <td> React</td>
-        <td> Nodejs</td>
-        <td> MongoDB</td>
-    </tr>    
-    <tr style='width:100%'>
-        <td> Postman</td>
-        <td> Nodejs</td>
-        <td> MongoDB</td>
-    </tr>
-</table>
+<div style="width=100%; display:flex;">
+    <p>sss</p>
+    <p>sss</p>
+    <p>sss</p>
+    <p>sss</p>
+
+</div>
 
