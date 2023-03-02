@@ -50,3 +50,4 @@ If the user already exists, it immediately disables the submit button
 
 ## Preview of product
 All products must have title, description, createdDate, author, genres(tags) and price. 
+<img src='assets/preview.png' style="width:100%;" />
