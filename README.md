@@ -10,6 +10,5 @@ The most problem that faced us is that in  authentication. It have to check what
 
 first of all you need to install node.js. After installing node.js, you have to run server app and client app individual. After running the app should be like shown below
 
-![](/home/ahmad/.var/app/com.github.marktext.marktext/config/marktext/images/2023-03-02-12-04-01-image.png)
+<img src='image.png' />
 
-s
