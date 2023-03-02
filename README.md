@@ -8,4 +8,3 @@ We used MERN stack in this project becouse the flexablity of js  and the power o
 
 The most problem that faced us is that in  authentication. It have to check whatever the                email is exist or not. So, we had to use google api to send a code to the email that was formed. Then after that, the frontend have to wait untill insert the genrate code that was sended
 
-
