@@ -59,7 +59,7 @@ All products must have title, description, createdDate, author, genres(tags) and
 ## Programming languages & Tools
 
 <div style='width:100%'>
-    <table style='width;100%'>
+    <table style='width;100%; border:none;'>
     <tr>
         <td> HTML</td>
         <td> CSS</td>
