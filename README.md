@@ -14,6 +14,21 @@ First of all you need to install node.js. After installing node.js, you have to 
 
 
 
+
+
+## Authentication 
+The sign up and the login pages are in the same file. That's mean it's easy to switch between them without lost of data.
+### Sign up page
+<img src='assets/auth.png' style="width:100%;" />
+
+### When the user is already exist 
+If the user already exists, it immediately disables the submit button
+<img src='assets/invalide.png' style="width:100%;" />
+
+## Preview of product
+All products must have title, description, createdDate, author, genres(tags) and price. Only the owner of this product can Delete & Edit it. The others won't show them the delete & edit buttons. 
+<img src='assets/preview.png' style="width:100%;" />
+
 ## What Services are provided ?
 ### Provided Services
 > Authentication system
@@ -37,17 +52,3 @@ First of all you need to install node.js. After installing node.js, you have to 
 > 
 > Working on advance search
 
-
-
-## Authentication 
-The sign up and the login pages are in the same file. That's mean it's easy to switch between them without lost of data.
-### Sign up page
-<img src='assets/auth.png' style="width:100%;" />
-
-### When the user is already exist 
-If the user already exists, it immediately disables the submit button
-<img src='assets/invalide.png' style="width:100%;" />
-
-## Preview of product
-All products must have title, description, createdDate, author, genres(tags) and price. Only the owner of this product can Delete & Edit it. The others won't show them the delete & edit buttons. 
-<img src='assets/preview.png' style="width:100%;" />
