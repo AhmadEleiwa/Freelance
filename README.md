@@ -9,6 +9,9 @@ The most problem that faced me is that during  authentication. It has to check w
 ## How To Run
 
 First of all you need to install node.js. After installing node.js, you have to run the server app and client app as individuals by using npm start. After running the project, the app should be like as shown below.
+```bash
+npm start
+```
 
 <img src='assets/image.png' style="width:100%;" />
 
